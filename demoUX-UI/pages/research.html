@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - SWAP | Stop Waste And Plastic</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <style>
+        /* CSS Variables - Design System */
+        :root {
+            --pastel-green: #B8E6B8;
+            --pastel-blue: #A7C7E7;
+            --cream: #FFFDD0;
+            --mint: #C1F0C1;
+            --sky: #B9D9EB;
+            --sand: #F5EFE0;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+            --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+            --font-rounded: 'Nunito', 'Quicksand', sans-serif;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --radius-soft: 12px;
+            --radius-round: 20px;
+            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: var(--space-4) 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--pastel-green);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-blue);
+            color: var(--gray-900);
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: var(--space-16) 0 var(--space-8);
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--sky) 100%);
+        }
+
+        .page-header h1 {
+            font-family: var(--font-rounded);
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-header .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section */
+        .section {
+            padding: var(--space-16) 0;
+        }
+
+        .section-title {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
+        }
+
+        /* Overview */
+        .overview {
+            background-color: var(--white);
+        }
+
+        .overview-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .overview-content p {
+            margin-bottom: var(--space-6);
+        }
+
+        /* Key Findings */
+        .findings {
+            background-color: var(--sand);
+        }
+
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .finding-card {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .finding-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--pastel-green);
+            border-radius: 50%;
+            margin-bottom: var(--space-6);
+        }
+
+        .finding-icon iconify-icon {
+            color: var(--white);
+            font-size: 32px;
+        }
+
+        .finding-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .finding-stat {
+            font-family: var(--font-rounded);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            margin-bottom: var(--space-4);
+        }
+
+        .finding-card p {
+            color: var(--gray-700);
+        }
+
+        /* Research Documents */
+        .documents {
+            background-color: var(--white);
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .doc-card {
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--sky) 100%);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .doc-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white);
+            border-radius: var(--radius-round);
+            margin-bottom: var(--space-6);
+        }
+
+        .doc-icon iconify-icon {
+            color: var(--pastel-blue);
+            font-size: 32px;
+        }
+
+        .doc-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .doc-card p {
+            color: var(--gray-800);
+            margin-bottom: var(--space-6);
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--white);
+            color: var(--gray-900);
+            border-radius: var(--radius-round);
+            text-decoration: none;
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .doc-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Methodology */
+        .methodology {
+            background-color: var(--sand);
+        }
+
+        .methodology-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .method-card {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            margin-bottom: var(--space-6);
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+
+        .method-number {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--pastel-green);
+            color: var(--white);
+            border-radius: 50%;
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .method-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .method-card p {
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-6);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            color: var(--pastel-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray-100);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--pastel-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .method-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="homepage.html" class="logo">
+                <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
+                <span>SWAP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="action.html">Action</a></li>
+                <li><a href="goals.html">Goals</a></li>
+            </ul>
+            <button class="lang-switch">
+                <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
+                日本語
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <iconify-icon icon="mdi:magnify" width="80" style="color: var(--white); margin-bottom: 1rem;"></iconify-icon>
+            <h1>Research</h1>
+            <p class="subtitle">
+                Evidence-based research on plastic waste in Japanese supermarkets
+            </p>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="section overview">
+        <div class="container">
+            <h2 class="section-title">Research Overview</h2>
+            <div class="overview-content">
+                <p>
+                    Our research focuses on understanding the scope and impact of plastic packaging
+                    in Japanese supermarkets. Through systematic surveys and data collection across
+                    6+ supermarket locations, we've gathered comprehensive evidence about plastic
+                    waste practices and their environmental impact.
+                </p>
+                <p>
+                    Our methodology combines quantitative data collection (packaging counts, material
+                    analysis) with qualitative observations (store practices, customer behavior). This
+                    multi-faceted approach provides a complete picture of the plastic waste problem
+                    and helps identify practical solutions.
+                </p>
+                <p>
+                    All research data is documented in detailed Google Docs reports, available for
+                    public access. We believe in transparency and evidence-based advocacy, which is
+                    why we make all our findings publicly available.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section findings">
+        <div class="container">
+            <h2 class="section-title">Key Findings</h2>
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">
+                        <iconify-icon icon="mdi:package-variant" width="32"></iconify-icon>
+                    </div>
+                    <h3>Excessive Packaging</h3>
+                    <div class="finding-stat">85%</div>
+                    <p>
+                        Of fresh produce items use unnecessary plastic packaging, including
+                        double-wrapping and individual plastic containers.
+                    </p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon" style="background-color: var(--pastel-blue);">
+                        <iconify-icon icon="mdi:recycle-variant" width="32"></iconify-icon>
+                    </div>
+                    <h3>Non-Recyclable Materials</h3>
+                    <div class="finding-stat">60%</div>
+                    <p>
+                        Of plastic packaging used is not recyclable in local recycling programs,
+                        contributing to landfill waste.
+                    </p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon" style="background-color: var(--mint);">
+                        <iconify-icon icon="mdi:sprout" width="32"></iconify-icon>
+                    </div>
+                    <h3>Alternative Availability</h3>
+                    <div class="finding-stat">15%</div>
+                    <p>
+                        Only 15% of supermarkets surveyed offer plastic-free alternatives or
+                        bulk buying options for common products.
+                    </p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon" style="background-color: var(--sky);">
+                        <iconify-icon icon="mdi:account-group" width="32"></iconify-icon>
+                    </div>
+                    <h3>Consumer Awareness</h3>
+                    <div class="finding-stat">72%</div>
+                    <p>
+                        Of surveyed consumers expressed concern about plastic waste but feel
+                        they lack alternatives when shopping.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Documents -->
+    <section class="section documents">
+        <div class="container">
+            <h2 class="section-title">Research Documents</h2>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <iconify-icon icon="mdi:file-document" width="32"></iconify-icon>
+                    </div>
+                    <h3>Supermarket Survey Report</h3>
+                    <p>
+                        Comprehensive analysis of plastic packaging practices across 6+ supermarket
+                        locations. Includes data tables, photos, and recommendations.
+                    </p>
+                    <a href="#" class="doc-link">
+                        <iconify-icon icon="mdi:open-in-new" width="20"></iconify-icon>
+                        View on Google Docs
+                    </a>
+                </div>
+
+                <div class="doc-card" style="background: linear-gradient(135deg, var(--pastel-green) 0%, var(--mint) 100%);">
+                    <div class="doc-icon">
+                        <iconify-icon icon="mdi:chart-bar" width="32" style="color: var(--pastel-green);"></iconify-icon>
+                    </div>
+                    <h3>Data Analysis & Trends</h3>
+                    <p>
+                        Statistical analysis of packaging trends, material types, and comparison
+                        between different supermarket chains.
+                    </p>
+                    <a href="#" class="doc-link">
+                        <iconify-icon icon="mdi:open-in-new" width="20"></iconify-icon>
+                        View on Google Docs
+                    </a>
+                </div>
+
+                <div class="doc-card" style="background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);">
+                    <div class="doc-icon">
+                        <iconify-icon icon="mdi:image-multiple" width="32" style="color: var(--gray-700);"></iconify-icon>
+                    </div>
+                    <h3>Photo Documentation</h3>
+                    <p>
+                        Visual evidence of packaging practices, including examples of excessive
+                        wrapping and sustainable alternatives.
+                    </p>
+                    <a href="#" class="doc-link">
+                        <iconify-icon icon="mdi:open-in-new" width="20"></iconify-icon>
+                        View on Google Docs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section methodology">
+        <div class="container">
+            <h2 class="section-title">Our Methodology</h2>
+            <div class="methodology-content">
+                <div class="method-card">
+                    <div class="method-header">
+                        <div class="method-number">1</div>
+                        <h3>Location Selection</h3>
+                    </div>
+                    <p>
+                        We selected 6+ supermarkets representing different chains, sizes, and customer
+                        demographics in the Toyonaka area. This diversity ensures our findings are
+                        representative of typical supermarket practices in Japan.
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-header">
+                        <div class="method-number">2</div>
+                        <h3>Data Collection</h3>
+                    </div>
+                    <p>
+                        Team members visited each location multiple times to document packaging practices.
+                        We recorded product categories, packaging types, material composition, and
+                        recyclability information. Photos were taken for visual documentation.
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-header">
+                        <div class="method-number">3</div>
+                        <h3>Customer Surveys</h3>
+                    </div>
+                    <p>
+                        We conducted informal surveys with shoppers to understand consumer awareness,
+                        preferences, and challenges related to plastic-free shopping. This qualitative
+                        data helps contextualize our quantitative findings.
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-header">
+                        <div class="method-number">4</div>
+                        <h3>Analysis & Reporting</h3>
+                    </div>
+                    <p>
+                        All data was compiled and analyzed to identify patterns, trends, and opportunities
+                        for improvement. Findings are documented in detailed Google Docs reports with
+                        recommendations for supermarkets, policymakers, and consumers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background-color: var(--pastel-green); text-align: center;">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--gray-900);">Use Our Research</h2>
+            <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto var(--space-8); color: var(--gray-800);">
+                Our research is freely available for educators, students, researchers, and advocates.
+                Contact us if you'd like to collaborate or learn more.
+            </p>
+            <a href="action.html" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background-color: var(--gray-900); color: var(--white); border-radius: var(--radius-round); text-decoration: none; font-family: var(--font-rounded); font-weight: 600;">
+                <iconify-icon icon="mdi:email-outline" width="20"></iconify-icon>
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SWAP</h4>
+                    <p>Stop Waste And Plastic</p>
+                    <p style="margin-top: 1rem;">
+                        High school student-led initiative tackling plastic waste in Japanese supermarkets.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="homepage.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="progress.html">Progress</a>
+                    <a href="action.html">Take Action</a>
+                    <a href="goals.html">Goals</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        <iconify-icon icon="mdi:email-outline" width="16" style="vertical-align: middle;"></iconify-icon>
+                        swapplastictogreen@gmail.com
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
+                        @swapplastictogreen
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:draw-pen" width="16" style="vertical-align: middle;"></iconify-icon>
+                        <a href="#">Sign our petition</a>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SWAP - Stop Waste And Plastic. Made with 💚 by SWAP Team.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

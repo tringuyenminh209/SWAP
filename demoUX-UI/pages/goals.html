@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals & Achievements - SWAP | Stop Waste And Plastic</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <style>
+        /* CSS Variables - Design System */
+        :root {
+            --pastel-green: #B8E6B8;
+            --pastel-blue: #A7C7E7;
+            --cream: #FFFDD0;
+            --mint: #C1F0C1;
+            --sky: #B9D9EB;
+            --sand: #F5EFE0;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+            --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+            --font-rounded: 'Nunito', 'Quicksand', sans-serif;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --radius-soft: 12px;
+            --radius-round: 20px;
+            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: var(--space-4) 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--pastel-green);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-blue);
+            color: var(--gray-900);
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: var(--space-16) 0 var(--space-8);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--mint) 100%);
+        }
+
+        .page-header h1 {
+            font-family: var(--font-rounded);
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-header .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-700);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section */
+        .section {
+            padding: var(--space-16) 0;
+        }
+
+        .section-title {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
+        }
+
+        /* Achievement Cards */
+        .achievements {
+            background-color: var(--white);
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .achievement-card {
+            background-color: var(--sand);
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .achievement-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--mint) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .achievement-image iconify-icon {
+            color: var(--white);
+            font-size: 120px;
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            background-color: var(--white);
+            color: var(--pastel-green);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 700;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .achievement-content {
+            padding: var(--space-8);
+        }
+
+        .achievement-content h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .achievement-content p {
+            color: var(--gray-700);
+            margin-bottom: var(--space-6);
+            line-height: 1.7;
+        }
+
+        .achievement-stats {
+            display: flex;
+            gap: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat iconify-icon {
+            color: var(--pastel-green);
+            font-size: 20px;
+        }
+
+        .stat-text {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        /* Impact Metrics */
+        .impact {
+            background-color: var(--pastel-green);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .impact-card {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .impact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--mint) 100%);
+            border-radius: 50%;
+        }
+
+        .impact-icon iconify-icon {
+            color: var(--white);
+            font-size: 40px;
+        }
+
+        .impact-number {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            margin-bottom: var(--space-4);
+        }
+
+        .impact-label {
+            font-size: 1.125rem;
+            color: var(--gray-800);
+            font-weight: 600;
+        }
+
+        .impact-description {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            margin-top: var(--space-4);
+        }
+
+        /* Future Goals */
+        .future-goals {
+            background-color: var(--sand);
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .goal-card {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            border-left: 6px solid var(--pastel-blue);
+        }
+
+        .goal-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .goal-card h3 iconify-icon {
+            color: var(--pastel-blue);
+            font-size: 28px;
+        }
+
+        .goal-card p {
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--pastel-blue);
+            padding: var(--space-16) 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            margin-bottom: var(--space-8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--gray-900);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-6);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            color: var(--pastel-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray-100);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--pastel-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="homepage.html" class="logo">
+                <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
+                <span>SWAP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="action.html">Action</a></li>
+                <li><a href="goals.html" class="active">Goals</a></li>
+            </ul>
+            <button class="lang-switch">
+                <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
+                日本語
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <iconify-icon icon="mdi:trophy" width="80" style="color: var(--pastel-green); margin-bottom: 1rem;"></iconify-icon>
+            <h1>Goals & Achievements</h1>
+            <p class="subtitle">
+                Celebrating our milestones and looking ahead to future impact
+            </p>
+        </div>
+    </section>
+
+    <!-- Major Achievements -->
+    <section class="section achievements">
+        <div class="container">
+            <h2 class="section-title">Major Achievements</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="achievement-image">
+                        <iconify-icon icon="mdi:store" width="120"></iconify-icon>
+                        <div class="achievement-badge">Completed</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Supermarket Initiative</h3>
+                        <p>
+                            Successfully researched and documented plastic packaging practices across 6+
+                            supermarket locations in the Toyonaka area. Our comprehensive data collection
+                            provides valuable insights for advocacy and policy change.
+                        </p>
+                        <div class="achievement-stats">
+                            <div class="stat">
+                                <iconify-icon icon="mdi:map-marker" width="20"></iconify-icon>
+                                <span class="stat-text">6+ Locations</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:clipboard-list" width="20"></iconify-icon>
+                                <span class="stat-text">500+ Data Points</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:camera" width="20"></iconify-icon>
+                                <span class="stat-text">200+ Photos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-image" style="background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--sky) 100%);">
+                        <iconify-icon icon="mdi:draw-pen" width="120"></iconify-icon>
+                        <div class="achievement-badge" style="color: var(--pastel-blue);">Milestone Reached</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Change.org Petition</h3>
+                        <p>
+                            Launched petition calling for Japanese supermarkets to reduce single-use plastic
+                            packaging. Surpassed initial goal of 100 signatures and continuing to grow support
+                            from community members and environmental advocates.
+                        </p>
+                        <div class="achievement-stats">
+                            <div class="stat">
+                                <iconify-icon icon="mdi:account-group" width="20"></iconify-icon>
+                                <span class="stat-text">100+ Signatures</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:share-variant" width="20"></iconify-icon>
+                                <span class="stat-text">1000+ Shares</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:trending-up" width="20"></iconify-icon>
+                                <span class="stat-text">Growing Daily</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-image" style="background: linear-gradient(135deg, var(--mint) 0%, var(--pastel-green) 100%);">
+                        <iconify-icon icon="mdi:handshake" width="120"></iconify-icon>
+                        <div class="achievement-badge" style="color: var(--mint);">Active Partnership</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Community Partnerships</h3>
+                        <p>
+                            Established official partnerships with Toyonaka City Hall environmental department
+                            and ECC Volunteer Center. These collaborations amplify our impact and provide
+                            resources for expanding our initiatives.
+                        </p>
+                        <div class="achievement-stats">
+                            <div class="stat">
+                                <iconify-icon icon="mdi:office-building" width="20"></iconify-icon>
+                                <span class="stat-text">2 Major Partners</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:calendar-check" width="20"></iconify-icon>
+                                <span class="stat-text">12+ Joint Events</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:account-multiple" width="20"></iconify-icon>
+                                <span class="stat-text">50+ Volunteers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-image" style="background: linear-gradient(135deg, var(--sky) 0%, var(--pastel-blue) 100%);">
+                        <iconify-icon icon="mdi:school" width="120"></iconify-icon>
+                        <div class="achievement-badge" style="color: var(--sky);">Ongoing</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Educational Outreach</h3>
+                        <p>
+                            Conducted workshops and presentations at schools and community centers to raise
+                            awareness about plastic waste. Our educational programs have reached over 1000
+                            students and community members.
+                        </p>
+                        <div class="achievement-stats">
+                            <div class="stat">
+                                <iconify-icon icon="mdi:account-group" width="20"></iconify-icon>
+                                <span class="stat-text">1000+ People Reached</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:presentation" width="20"></iconify-icon>
+                                <span class="stat-text">15+ Workshops</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:school" width="20"></iconify-icon>
+                                <span class="stat-text">8+ Schools</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section class="section impact">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--gray-900);">Our Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <iconify-icon icon="mdi:store" width="40"></iconify-icon>
+                    </div>
+                    <div class="impact-number">6+</div>
+                    <div class="impact-label">Supermarkets</div>
+                    <p class="impact-description">Researched and documented</p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--sky) 100%);">
+                        <iconify-icon icon="mdi:draw-pen" width="40"></iconify-icon>
+                    </div>
+                    <div class="impact-number">100+</div>
+                    <div class="impact-label">Signatures</div>
+                    <p class="impact-description">On Change.org petition</p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, var(--mint) 0%, var(--pastel-green) 100%);">
+                        <iconify-icon icon="mdi:account-group" width="40"></iconify-icon>
+                    </div>
+                    <div class="impact-number">1000+</div>
+                    <div class="impact-label">People</div>
+                    <p class="impact-description">Reached through campaigns</p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, var(--sky) 0%, var(--pastel-blue) 100%);">
+                        <iconify-icon icon="mdi:calendar-check" width="40"></iconify-icon>
+                    </div>
+                    <div class="impact-number">12+</div>
+                    <div class="impact-label">Campaigns</div>
+                    <p class="impact-description">Organized and executed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Goals -->
+    <section class="section future-goals">
+        <div class="container">
+            <h2 class="section-title">Future Goals</h2>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <h3>
+                        <iconify-icon icon="mdi:target" width="28"></iconify-icon>
+                        Expand Research
+                    </h3>
+                    <p>
+                        Extend supermarket research to 20+ locations across multiple cities in Japan,
+                        creating a comprehensive national database of packaging practices.
+                    </p>
+                </div>
+
+                <div class="goal-card" style="border-left-color: var(--pastel-green);">
+                    <h3>
+                        <iconify-icon icon="mdi:draw-pen" width="28" style="color: var(--pastel-green);"></iconify-icon>
+                        Petition Growth
+                    </h3>
+                    <p>
+                        Reach 1000 signatures on our Change.org petition and present findings directly
+                        to major supermarket chains and government officials.
+                    </p>
+                </div>
+
+                <div class="goal-card" style="border-left-color: var(--mint);">
+                    <h3>
+                        <iconify-icon icon="mdi:handshake" width="28" style="color: var(--mint);"></iconify-icon>
+                        Corporate Partnerships
+                    </h3>
+                    <p>
+                        Establish formal partnerships with at least 3 supermarket chains to pilot
+                        plastic-free initiatives and sustainable packaging alternatives.
+                    </p>
+                </div>
+
+                <div class="goal-card" style="border-left-color: var(--sky);">
+                    <h3>
+                        <iconify-icon icon="mdi:school" width="28" style="color: var(--sky);"></iconify-icon>
+                        Education Program
+                    </h3>
+                    <p>
+                        Develop standardized curriculum for schools about plastic waste and sustainability,
+                        reaching 50+ schools across Japan.
+                    </p>
+                </div>
+
+                <div class="goal-card" style="border-left-color: var(--pastel-green);">
+                    <h3>
+                        <iconify-icon icon="mdi:file-document" width="28" style="color: var(--pastel-green);"></iconify-icon>
+                        Policy Advocacy
+                    </h3>
+                    <p>
+                        Work with local and national government to advocate for policies that reduce
+                        single-use plastic in retail environments.
+                    </p>
+                </div>
+
+                <div class="goal-card" style="border-left-color: var(--pastel-blue);">
+                    <h3>
+                        <iconify-icon icon="mdi:earth" width="28" style="color: var(--pastel-blue);"></iconify-icon>
+                        International Network
+                    </h3>
+                    <p>
+                        Connect with student environmental groups worldwide to share best practices
+                        and amplify global impact against plastic waste.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Help Us Achieve Our Goals</h2>
+            <p>
+                Every signature, every share, every voice matters. Join SWAP and help us create
+                meaningful change in Japanese supermarkets.
+            </p>
+            <a href="action.html" class="btn btn-primary">
+                <iconify-icon icon="mdi:hand-heart" width="20"></iconify-icon>
+                Take Action Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SWAP</h4>
+                    <p>Stop Waste And Plastic</p>
+                    <p style="margin-top: 1rem;">
+                        High school student-led initiative tackling plastic waste in Japanese supermarkets.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="homepage.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="progress.html">Progress</a>
+                    <a href="action.html">Take Action</a>
+                    <a href="goals.html">Goals</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        <iconify-icon icon="mdi:email-outline" width="16" style="vertical-align: middle;"></iconify-icon>
+                        swapplastictogreen@gmail.com
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
+                        @swapplastictogreen
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:draw-pen" width="16" style="vertical-align: middle;"></iconify-icon>
+                        <a href="#">Sign our petition</a>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SWAP - Stop Waste And Plastic. Made with 💚 by SWAP Team.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
