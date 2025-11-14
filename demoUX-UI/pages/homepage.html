@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWAP - Stop Waste And Plastic | Homepage Demo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <style>
+        /* CSS Variables - Design System */
+        :root {
+            /* Colors */
+            --pastel-green: #B8E6B8;
+            --pastel-blue: #A7C7E7;
+            --cream: #FFFDD0;
+            --mint: #C1F0C1;
+            --sky: #B9D9EB;
+            --sand: #F5EFE0;
+
+            /* Grays */
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+
+            /* Fonts */
+            --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+            --font-rounded: 'Nunito', 'Quicksand', sans-serif;
+
+            /* Spacing */
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+
+            /* Radius */
+            --radius-soft: 12px;
+            --radius-round: 20px;
+
+            /* Shadow */
+            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: var(--space-4) 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo iconify-icon {
+            color: var(--pastel-green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pastel-green);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-blue);
+            color: var(--gray-900);
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .lang-switch:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--space-16) 0;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--mint) 100%);
+        }
+
+        .hero h1 {
+            font-family: var(--font-rounded);
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .hero .motto {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: var(--space-8);
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--gray-700);
+            max-width: 600px;
+            margin: 0 auto var(--space-8);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--pastel-green);
+            color: var(--gray-900);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background-color: var(--pastel-blue);
+            color: var(--white);
+            margin-left: var(--space-4);
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: var(--space-16) 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            padding: var(--space-16) 0;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--pastel-green);
+            border-radius: 50%;
+            margin-bottom: var(--space-4);
+        }
+
+        .card-icon iconify-icon {
+            color: var(--white);
+            font-size: 32px;
+        }
+
+        .card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .card p {
+            color: var(--gray-700);
+        }
+
+        /* Stats */
+        .stats {
+            background-color: var(--pastel-green);
+            padding: var(--space-16) 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .stat-item h4 {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gray-900);
+        }
+
+        .stat-item p {
+            font-size: 1.125rem;
+            color: var(--gray-800);
+            margin-top: var(--space-4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-6);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            color: var(--pastel-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray-100);
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--pastel-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .motto {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none; /* Mobile menu would go here */
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: var(--space-4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
+                <span>SWAP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#progress">Progress</a></li>
+                <li><a href="#action">Action</a></li>
+                <li><a href="#goals">Goals</a></li>
+            </ul>
+            <button class="lang-switch">
+                <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
+                日本語
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <iconify-icon icon="mdi:earth" width="80" style="color: var(--pastel-green); margin-bottom: 1rem;"></iconify-icon>
+            <h1>SWAP</h1>
+            <p class="motto">Stop Waste And Plastic</p>
+            <p class="tagline">
+                SWAP plastic for a better future! Join us in reducing plastic waste in Japanese supermarkets. 🌍
+            </p>
+            <div>
+                <a href="#" class="btn btn-primary">
+                    <iconify-icon icon="mdi:hand-heart" width="20" style="vertical-align: middle; margin-right: 0.5rem;"></iconify-icon>
+                    Join Our Movement
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <iconify-icon icon="mdi:signature" width="20" style="vertical-align: middle; margin-right: 0.5rem;"></iconify-icon>
+                    Sign Petition
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mission-content">
+                <p>
+                    Our organization's primary goal is to tackle the growing issue of plastic waste
+                    originating from packaging in Japanese supermarkets. By promoting sustainable
+                    alternatives and raising awareness about the environmental impact of single-use
+                    plastics, we aim to inspire change at both the consumer and corporate levels.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    As a high school student-led initiative, we are dedicated to collaborating with
+                    local communities, schools, and businesses to implement creative, practical solutions
+                    that reduce waste and contribute to a cleaner, greener future for Japan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do - Cards -->
+    <section style="background-color: var(--sand); padding: var(--space-16) 0;">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <iconify-icon icon="mdi:sprout" width="32"></iconify-icon>
+                    </div>
+                    <h3>Advocate</h3>
+                    <p>
+                        We work with supermarkets and businesses to reduce single-use plastic
+                        packaging and promote sustainable alternatives.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background-color: var(--pastel-blue);">
+                        <iconify-icon icon="mdi:book-open-outline" width="32"></iconify-icon>
+                    </div>
+                    <h3>Educate</h3>
+                    <p>
+                        Through workshops and campaigns, we raise awareness about the environmental
+                        impact of plastic waste in our communities.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background-color: var(--mint);">
+                        <iconify-icon icon="mdi:handshake-outline" width="32"></iconify-icon>
+                    </div>
+                    <h3>Collaborate</h3>
+                    <p>
+                        We partner with local organizations, schools, and businesses to create
+                        practical solutions for reducing plastic waste.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--gray-900);">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>6+</h4>
+                    <p>Supermarket Locations</p>
+                </div>
+                <div class="stat-item">
+                    <h4>100+</h4>
+                    <p>Petition Signatures</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1000+</h4>
+                    <p>People Reached</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background-color: var(--pastel-blue); padding: var(--space-16) 0; text-align: center;">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--gray-900);">Get Involved</h2>
+            <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto var(--space-8); color: var(--gray-800);">
+                Together, we can make a difference. Join our movement to reduce plastic waste and
+                create a sustainable future.
+            </p>
+            <a href="#" class="btn btn-primary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SWAP</h4>
+                    <p>Stop Waste And Plastic</p>
+                    <p style="margin-top: 1rem;">
+                        High school student-led initiative tackling plastic waste in Japanese supermarkets.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="#">About Us</a></p>
+                    <p><a href="#">Progress</a></p>
+                    <p><a href="#">Take Action</a></p>
+                    <p><a href="#">Research</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        <iconify-icon icon="mdi:email-outline" width="16" style="vertical-align: middle;"></iconify-icon>
+                        swapplastictogreen@gmail.com
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
+                        @swapplastictogreen
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:signature" width="16" style="vertical-align: middle;"></iconify-icon>
+                        <a href="#">Sign our petition</a>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SWAP - Stop Waste And Plastic. Made with 💚 by SWAP Team.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
