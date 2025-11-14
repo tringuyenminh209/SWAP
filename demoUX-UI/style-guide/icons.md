@@ -556,7 +556,7 @@ Many icons have variants:
 ### Action Page
 ```html
 <iconify-icon icon="mdi:hand-heart"></iconify-icon>  <!-- Support -->
-<iconify-icon icon="mdi:signature"></iconify-icon>  <!-- Sign Petition -->
+<iconify-icon icon="mdi:draw-pen"></iconify-icon>  <!-- Sign Petition -->
 <iconify-icon icon="mdi:share-variant"></iconify-icon>  <!-- Share -->
 ```
 
