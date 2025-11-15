@@ -11,10 +11,10 @@ const stats: Stat[] = [
 
 export default function StatsSection() {
   return (
-    <section className="py-16 md:py-24 text-center" style={{ backgroundColor: 'var(--pastel-green)' }}>
+    <section className="py-16 text-center" style={{ backgroundColor: 'var(--pastel-green)' }}>
       <div className="container mx-auto px-6 max-w-[1200px]">
         <h2
-          className="text-4xl md:text-5xl font-bold mb-12"
+          className="text-[2rem] md:text-[3rem] font-bold mb-8"
           style={{
             fontFamily: "'Nunito', 'Quicksand', sans-serif",
             color: 'var(--gray-900)'
@@ -27,7 +27,7 @@ export default function StatsSection() {
           {stats.map((stat) => (
             <div key={stat.label}>
               <h4
-                className="text-5xl md:text-6xl font-extrabold"
+                className="text-[2.5rem] md:text-[3rem] font-extrabold"
                 style={{
                   fontFamily: "'Nunito', 'Quicksand', sans-serif",
                   color: 'var(--gray-900)'
@@ -35,7 +35,7 @@ export default function StatsSection() {
               >
                 {stat.value}
               </h4>
-              <p className="text-lg mt-4 text-[var(--gray-800)]">
+              <p className="text-base md:text-[1.125rem] mt-4 text-[var(--gray-800)]">
                 {stat.label}
               </p>
             </div>

@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export default function CTASection() {
   return (
-    <section className="py-16 md:py-24 text-center" style={{ backgroundColor: 'var(--pastel-blue)' }}>
+    <section className="py-16 text-center" style={{ backgroundColor: 'var(--pastel-blue)' }}>
       <div className="container mx-auto px-6 max-w-[1200px]">
         <h2
-          className="text-4xl md:text-5xl font-bold mb-6"
+          className="text-[2rem] md:text-[3rem] font-bold mb-8"
           style={{
             fontFamily: "'Nunito', 'Quicksand', sans-serif",
             color: 'var(--gray-900)'
@@ -14,7 +14,7 @@ export default function CTASection() {
           Get Involved
         </h2>
 
-        <p className="text-lg md:text-xl max-w-[600px] mx-auto mb-8 text-[var(--gray-800)]">
+        <p className="text-lg md:text-[1.25rem] max-w-[600px] mx-auto mb-8 text-[var(--gray-800)]">
           Together, we can make a difference. Join our movement to reduce plastic waste and
           create a sustainable future.
         </p>

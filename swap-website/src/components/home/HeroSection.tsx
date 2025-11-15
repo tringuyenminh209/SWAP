@@ -3,12 +3,12 @@ import { Icon } from '@iconify/react';
 
 export default function HeroSection() {
   return (
-    <section className="relative text-center py-16 md:py-24">
+    <section className="relative text-center py-16 md:py-24 min-h-[500px] flex items-center">
       {/* Background with gradient overlay */}
       <div
         className="absolute inset-0 z-0"
         style={{
-          background: `linear-gradient(135deg, rgba(255, 253, 208, 0.85) 0%, rgba(193, 240, 193, 0.85) 100%), url('/images/homeimg.webp') center/cover no-repeat`,
+          background: `linear-gradient(135deg, rgba(255, 253, 208, 0.95) 0%, rgba(193, 240, 193, 0.95) 100%), url('/images/homeimg.webp') center/cover no-repeat`,
           backgroundBlendMode: 'overlay'
         }}
       />
@@ -23,7 +23,7 @@ export default function HeroSection() {
         />
 
         <h1
-          className="text-5xl md:text-7xl font-extrabold mb-4"
+          className="text-[2.5rem] md:text-[4.5rem] font-extrabold mb-4"
           style={{
             fontFamily: "'Nunito', 'Quicksand', sans-serif",
             color: 'var(--gray-900)'
@@ -33,7 +33,7 @@ export default function HeroSection() {
         </h1>
 
         <p
-          className="text-2xl md:text-3xl font-semibold mb-8"
+          className="text-[1.5rem] md:text-[2rem] font-semibold mb-8"
           style={{
             fontFamily: "'Nunito', 'Quicksand', sans-serif",
             color: 'var(--gray-700)'
@@ -42,7 +42,7 @@ export default function HeroSection() {
           Stop Waste And Plastic
         </p>
 
-        <p className="text-lg md:text-xl max-w-[600px] mx-auto mb-8 text-[var(--gray-700)]">
+        <p className="text-base md:text-[1.25rem] max-w-[600px] mx-auto mb-8 text-[var(--gray-700)]">
           SWAP plastic for a better future! Join us in reducing plastic waste in Japanese supermarkets. 🌍
         </p>
 

@@ -35,10 +35,10 @@ const actions: ActionCard[] = [
 
 export default function WhatWeDoSection() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--sand)' }}>
+    <section className="py-16" style={{ backgroundColor: 'var(--sand)' }}>
       <div className="container mx-auto px-6 max-w-[1200px]">
         <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-12"
+          className="text-[2rem] md:text-[3rem] font-bold text-center mb-8"
           style={{
             fontFamily: "'Nunito', 'Quicksand', sans-serif",
             color: 'var(--gray-900)'
@@ -65,7 +65,7 @@ export default function WhatWeDoSection() {
                 </div>
 
                 <h3
-                  className="text-2xl font-semibold mb-4"
+                  className="text-[1.5rem] font-semibold mb-4"
                   style={{
                     fontFamily: "'Nunito', 'Quicksand', sans-serif",
                     color: 'var(--gray-900)'
