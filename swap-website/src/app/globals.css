@@ -1,8 +1,41 @@
 @import "tailwindcss";
 
+/* CSS Variables - Design System from SWAP Demo */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* SWAP Colors */
+  --pastel-green: #B8E6B8;
+  --pastel-blue: #A7C7E7;
+  --cream: #FFFDD0;
+  --mint: #C1F0C1;
+  --sky: #B9D9EB;
+  --sand: #F5EFE0;
+
+  /* Grays */
+  --white: #FFFFFF;
+  --gray-50: #FAFAFA;
+  --gray-100: #F4F4F5;
+  --gray-700: #3F3F46;
+  --gray-800: #27272A;
+  --gray-900: #18181B;
+
+  /* Spacing */
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Radius */
+  --radius-soft: 12px;
+  --radius-round: 20px;
+
+  /* Shadow */
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  /* Next.js defaults */
+  --background: var(--cream);
+  --foreground: var(--gray-900);
 }
 
 @theme inline {
@@ -10,17 +43,25 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Custom SWAP colors for Tailwind */
+  --color-pastel-green: var(--pastel-green);
+  --color-pastel-blue: var(--pastel-blue);
+  --color-cream: var(--cream);
+  --color-mint: var(--mint);
+  --color-sky: var(--sky);
+  --color-sand: var(--sand);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+  line-height: 1.6;
 }
