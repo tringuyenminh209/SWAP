@@ -139,9 +139,28 @@
 
         /* Hero Section */
         .hero {
+            position: relative;
             text-align: center;
             padding: var(--space-16) 0;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--mint) 100%);
+            background: linear-gradient(135deg, rgba(255, 253, 208, 0.95) 0%, rgba(193, 240, 193, 0.95) 100%),
+                        url('../assets/images/homeimg.webp') center/cover no-repeat;
+            background-blend-mode: overlay;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 253, 208, 0.85) 0%, rgba(193, 240, 193, 0.85) 100%);
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -356,16 +375,16 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">
+            <a href="homepage.html" class="logo">
                 <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
                 <span>SWAP</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#progress">Progress</a></li>
-                <li><a href="#action">Action</a></li>
-                <li><a href="#goals">Goals</a></li>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="action.html">Action</a></li>
+                <li><a href="goals.html">Goals</a></li>
             </ul>
             <button class="lang-switch">
                 <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
@@ -384,11 +403,11 @@
                 SWAP plastic for a better future! Join us in reducing plastic waste in Japanese supermarkets. 🌍
             </p>
             <div>
-                <a href="#" class="btn btn-primary">
+                <a href="action.html" class="btn btn-primary">
                     <iconify-icon icon="mdi:hand-heart" width="20" style="vertical-align: middle; margin-right: 0.5rem;"></iconify-icon>
                     Join Our Movement
                 </a>
-                <a href="#" class="btn btn-secondary">
+                <a href="action.html#petition" class="btn btn-secondary">
                     <iconify-icon icon="mdi:draw-pen" width="20" style="vertical-align: middle; margin-right: 0.5rem;"></iconify-icon>
                     Sign Petition
                 </a>
@@ -396,61 +415,65 @@
         </div>
     </section>
 
-    <!-- Mission Section -->
+    <!-- Our Mission Section -->
     <section class="mission">
         <div class="container">
             <h2 class="section-title">Our Mission</h2>
             <div class="mission-content">
                 <p>
-                    Our organization's primary goal is to tackle the growing issue of plastic waste
-                    originating from packaging in Japanese supermarkets. By promoting sustainable
-                    alternatives and raising awareness about the environmental impact of single-use
-                    plastics, we aim to inspire change at both the consumer and corporate levels.
+                    SWAP (Stop Waste And Plastic) is a student-led initiative dedicated to reducing plastic waste in Japanese supermarkets.
+                    We believe that sustainable change starts at the local level, and through advocacy, education, and collaboration,
+                    we can create a future where unnecessary plastic packaging is replaced with eco-friendly alternatives.
                 </p>
                 <p style="margin-top: 1.5rem;">
-                    As a high school student-led initiative, we are dedicated to collaborating with
-                    local communities, schools, and businesses to implement creative, practical solutions
-                    that reduce waste and contribute to a cleaner, greener future for Japan.
+                    Our mission is to work directly with supermarkets, educate our communities about the environmental impact of plastic waste,
+                    and build partnerships that lead to practical, sustainable solutions. Together, we can make a difference—one grocery trip at a time.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- What We Do - Cards -->
+    <!-- What We Do Section -->
     <section style="background-color: var(--sand); padding: var(--space-16) 0;">
         <div class="container">
             <h2 class="section-title">What We Do</h2>
             <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <iconify-icon icon="mdi:sprout" width="32"></iconify-icon>
+                <a href="advocate.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-icon">
+                            <iconify-icon icon="mdi:bullhorn" width="32"></iconify-icon>
+                        </div>
+                        <h3>Advocate</h3>
+                        <p>
+                            We work with supermarkets and businesses to reduce single-use plastic packaging
+                            and promote sustainable alternatives.
+                        </p>
                     </div>
-                    <h3>Advocate</h3>
-                    <p>
-                        We work with supermarkets and businesses to reduce single-use plastic
-                        packaging and promote sustainable alternatives.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="card-icon" style="background-color: var(--pastel-blue);">
-                        <iconify-icon icon="mdi:book-open-outline" width="32"></iconify-icon>
+                </a>
+                <a href="educate.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-icon" style="background-color: var(--pastel-blue);">
+                            <iconify-icon icon="mdi:book-open-outline" width="32"></iconify-icon>
+                        </div>
+                        <h3>Educate</h3>
+                        <p>
+                            Through workshops and campaigns, we raise awareness about the environmental impact
+                            of plastic waste in our communities.
+                        </p>
                     </div>
-                    <h3>Educate</h3>
-                    <p>
-                        Through workshops and campaigns, we raise awareness about the environmental
-                        impact of plastic waste in our communities.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="card-icon" style="background-color: var(--mint);">
-                        <iconify-icon icon="mdi:handshake-outline" width="32"></iconify-icon>
+                </a>
+                <a href="collaborate.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-icon" style="background-color: var(--mint);">
+                            <iconify-icon icon="mdi:handshake" width="32"></iconify-icon>
+                        </div>
+                        <h3>Collaborate</h3>
+                        <p>
+                            We partner with local organizations, schools, and businesses to create practical
+                            solutions for reducing plastic waste.
+                        </p>
                     </div>
-                    <h3>Collaborate</h3>
-                    <p>
-                        We partner with local organizations, schools, and businesses to create
-                        practical solutions for reducing plastic waste.
-                    </p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -484,7 +507,7 @@
                 Together, we can make a difference. Join our movement to reduce plastic waste and
                 create a sustainable future.
             </p>
-            <a href="#" class="btn btn-primary">Contact Us</a>
+            <a href="action.html#contact" class="btn btn-primary">Contact Us</a>
         </div>
     </section>
 
@@ -501,10 +524,12 @@
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <p><a href="#">About Us</a></p>
-                    <p><a href="#">Progress</a></p>
-                    <p><a href="#">Take Action</a></p>
-                    <p><a href="#">Research</a></p>
+                    <p><a href="homepage.html">Home</a></p>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="progress.html">Progress</a></p>
+                    <p><a href="action.html">Take Action</a></p>
+                    <p><a href="research.html">Research</a></p>
+                    <p><a href="goals.html">Goals</a></p>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
@@ -514,11 +539,11 @@
                     </p>
                     <p>
                         <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
-                        @swapplastictogreen
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
                     </p>
                     <p>
                         <iconify-icon icon="mdi:draw-pen" width="16" style="vertical-align: middle;"></iconify-icon>
-                        <a href="#">Sign our petition</a>
+                        <a href="action.html#petition">Sign our petition</a>
                     </p>
                 </div>
             </div>

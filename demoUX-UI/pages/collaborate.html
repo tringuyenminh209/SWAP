@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborate - SWAP | Stop Waste And Plastic</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <style>
+        /* CSS Variables - Design System */
+        :root {
+            --pastel-green: #B8E6B8;
+            --pastel-blue: #A7C7E7;
+            --cream: #FFFDD0;
+            --mint: #C1F0C1;
+            --sky: #B9D9EB;
+            --sand: #F5EFE0;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+            --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+            --font-rounded: 'Nunito', 'Quicksand', sans-serif;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --radius-soft: 12px;
+            --radius-round: 20px;
+            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: var(--space-4) 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pastel-green);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-blue);
+            color: var(--gray-900);
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: var(--space-16) 0 var(--space-8);
+            background: linear-gradient(135deg, var(--mint) 0%, var(--pastel-green) 100%);
+        }
+
+        .page-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto var(--space-6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+
+        .page-icon iconify-icon {
+            color: var(--mint);
+            font-size: 60px;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-rounded);
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-header .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section */
+        .section {
+            padding: var(--space-16) 0;
+        }
+
+        .section-title {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
+        }
+
+        /* Overview */
+        .overview {
+            background-color: var(--white);
+        }
+
+        .overview-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .overview-content p {
+            margin-bottom: var(--space-6);
+        }
+
+        /* Partners */
+        .partners {
+            background-color: var(--sand);
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .partner-card {
+            background-color: var(--white);
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .partner-image {
+            width: 100%;
+            height: 300px;
+        }
+
+        .partner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .partner-content {
+            padding: var(--space-8);
+        }
+
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--pastel-green);
+            border-radius: 50%;
+            margin-bottom: var(--space-6);
+        }
+
+        .partner-logo iconify-icon {
+            color: var(--white);
+            font-size: 40px;
+        }
+
+        .partner-content h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .partner-content p {
+            color: var(--gray-700);
+            margin-bottom: var(--space-6);
+        }
+
+        .partner-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-green);
+            color: var(--gray-900);
+            border-radius: var(--radius-soft);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* Opportunities */
+        .opportunities {
+            background-color: var(--white);
+        }
+
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .opp-card {
+            background-color: var(--sand);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .opp-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--mint);
+            border-radius: 50%;
+            margin-bottom: var(--space-6);
+        }
+
+        .opp-icon iconify-icon {
+            color: var(--white);
+            font-size: 32px;
+        }
+
+        .opp-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .opp-card p {
+            color: var(--gray-700);
+        }
+
+        /* CTA */
+        .cta {
+            background-color: var(--mint);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            margin-bottom: var(--space-8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background-color: var(--gray-900);
+            color: var(--white);
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-6);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            color: var(--pastel-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray-100);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--pastel-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="homepage.html" class="logo">
+                <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
+                <span>SWAP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="action.html">Action</a></li>
+                <li><a href="goals.html">Goals</a></li>
+            </ul>
+            <button class="lang-switch">
+                <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
+                日本語
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-icon">
+                <iconify-icon icon="mdi:handshake" width="60"></iconify-icon>
+            </div>
+            <h1>Collaborate</h1>
+            <p class="subtitle">
+                Partnering with local organizations, schools, and businesses to create
+                practical solutions for reducing plastic waste
+            </p>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="section overview">
+        <div class="container">
+            <h2 class="section-title">Partnership Philosophy</h2>
+            <div class="overview-content">
+                <p>
+                    We believe that lasting environmental change requires collaboration across
+                    sectors and communities. By partnering with local organizations, schools, and
+                    businesses, we amplify our impact and create sustainable solutions that work
+                    for everyone.
+                </p>
+                <p>
+                    Our partnerships are built on mutual respect, shared goals, and practical
+                    outcomes. We bring research, energy, and fresh perspectives. Our partners
+                    provide resources, expertise, and connections to broader communities.
+                </p>
+                <p>
+                    Together, we create programs that are more effective, more sustainable, and
+                    more impactful than any organization could achieve alone.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Partners -->
+    <section class="section partners">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="../assets/images/action.jpg" alt="Toyonaka City Hall partnership">
+                    </div>
+                    <div class="partner-content">
+                        <div class="partner-logo">
+                            <iconify-icon icon="mdi:office-building" width="40"></iconify-icon>
+                        </div>
+                        <h3>Toyonaka City Hall</h3>
+                        <p>
+                            Official partnership with the environmental department of Toyonaka City Hall.
+                            This collaboration provides us with municipal support, resources, and access
+                            to city-wide initiatives for plastic waste reduction.
+                        </p>
+                        <span class="partner-tag">Government</span>
+                        <span class="partner-tag">Active</span>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="../assets/images/eccaction.jpg" alt="ECC Volunteer Center collaboration">
+                    </div>
+                    <div class="partner-content">
+                        <div class="partner-logo" style="background-color: var(--pastel-blue);">
+                            <iconify-icon icon="mdi:account-group" width="40"></iconify-icon>
+                        </div>
+                        <h3>ECC Volunteer Center</h3>
+                        <p>
+                            Collaborative partnership connecting us with student volunteers and community
+                            members. ECC provides venue space for workshops and helps us reach broader
+                            audiences through their established networks.
+                        </p>
+                        <span class="partner-tag">Education</span>
+                        <span class="partner-tag">Active</span>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="../assets/images/Marketvisit2.jpg" alt="Supermarket collaboration">
+                    </div>
+                    <div class="partner-content">
+                        <div class="partner-logo" style="background-color: var(--mint);">
+                            <iconify-icon icon="mdi:store" width="40"></iconify-icon>
+                        </div>
+                        <h3>Local Supermarkets</h3>
+                        <p>
+                            Working relationships with 6+ supermarket locations for research collaboration
+                            and pilot programs. Managers provide insights into operational challenges and
+                            opportunities for plastic reduction.
+                        </p>
+                        <span class="partner-tag">Business</span>
+                        <span class="partner-tag">Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Opportunities -->
+    <section class="section opportunities">
+        <div class="container">
+            <h2 class="section-title">Ways to Collaborate</h2>
+            <div class="opp-grid">
+                <div class="opp-card">
+                    <div class="opp-icon">
+                        <iconify-icon icon="mdi:school" width="32"></iconify-icon>
+                    </div>
+                    <h3>Schools</h3>
+                    <p>
+                        Partner with us to bring environmental education to your students through
+                        workshops, presentations, and collaborative projects on sustainability.
+                    </p>
+                </div>
+
+                <div class="opp-card">
+                    <div class="opp-icon" style="background-color: var(--pastel-blue);">
+                        <iconify-icon icon="mdi:store-outline" width="32"></iconify-icon>
+                    </div>
+                    <h3>Businesses</h3>
+                    <p>
+                        Collaborate on pilot programs for sustainable packaging, employee training,
+                        and customer education initiatives to reduce plastic waste.
+                    </p>
+                </div>
+
+                <div class="opp-card">
+                    <div class="opp-icon" style="background-color: var(--pastel-green);">
+                        <iconify-icon icon="mdi:chart-line" width="32"></iconify-icon>
+                    </div>
+                    <h3>Researchers</h3>
+                    <p>
+                        Join our research efforts by contributing expertise, data analysis, or
+                        collaborative studies on plastic waste reduction strategies.
+                    </p>
+                </div>
+
+                <div class="opp-card">
+                    <div class="opp-icon" style="background-color: var(--sky);">
+                        <iconify-icon icon="mdi:bullhorn" width="32"></iconify-icon>
+                    </div>
+                    <h3>Organizations</h3>
+                    <p>
+                        Partner on campaigns, events, and advocacy initiatives that align with
+                        our mission of reducing plastic waste in communities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Interested in Partnering?</h2>
+            <p>
+                We're always looking for partners who share our vision of a plastic-free future.
+                Contact us to discuss collaboration opportunities!
+            </p>
+            <a href="action.html#contact" class="btn">
+                <iconify-icon icon="mdi:email-outline" width="20"></iconify-icon>
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SWAP</h4>
+                    <p>Stop Waste And Plastic</p>
+                    <p style="margin-top: 1rem;">
+                        High school student-led initiative tackling plastic waste in Japanese supermarkets.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="homepage.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="progress.html">Progress</a>
+                    <a href="action.html">Take Action</a>
+                    <a href="goals.html">Goals</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        <iconify-icon icon="mdi:email-outline" width="16" style="vertical-align: middle;"></iconify-icon>
+                        swapplastictogreen@gmail.com
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SWAP - Stop Waste And Plastic. Made with 💚 by SWAP Team.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

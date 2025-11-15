@@ -289,15 +289,31 @@
 
         .activity-card {
             background-color: var(--sand);
-            padding: var(--space-8);
             border-radius: var(--radius-round);
             box-shadow: var(--shadow-soft);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
         }
 
         .activity-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-medium);
+        }
+
+        .activity-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .activity-body {
+            padding: var(--space-8);
         }
 
         .activity-header {
@@ -308,18 +324,21 @@
         }
 
         .activity-icon {
-            width: 64px;
-            height: 64px;
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: var(--pastel-blue);
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .activity-icon iconify-icon {
             color: var(--white);
-            font-size: 32px;
+            font-size: 36px;
         }
 
         .activity-card h3 {
@@ -417,6 +436,10 @@
                 padding-right: 0;
                 text-align: left;
             }
+
+            .activity-image {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -491,53 +514,57 @@
                         <iconify-icon icon="mdi:lightbulb" width="24"></iconify-icon>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">JANUARY 2024</div>
+                        <div class="timeline-date">LATE 2024</div>
                         <h3>SWAP Initiative Founded</h3>
                         <p>
                             Group of high school students came together with a shared vision to tackle
-                            plastic waste in Japanese supermarkets. Initial planning and research phase began.
+                            plastic waste in Japanese supermarkets. Initial planning and research methodology
+                            developed focusing on manager interviews and on-site documentation.
                         </p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <iconify-icon icon="mdi:magnify" width="24"></iconify-icon>
+                        <iconify-icon icon="mdi:camera" width="24"></iconify-icon>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">FEBRUARY 2024</div>
-                        <h3>First Supermarket Survey</h3>
+                        <div class="timeline-date">JANUARY 20, 2025</div>
+                        <h3>First Supermarket Site Visit</h3>
                         <p>
-                            Conducted comprehensive survey of plastic packaging practices at local supermarkets.
-                            Documented findings and identified key areas for improvement.
+                            Conducted initial research visit to Supermarket 1 with comprehensive photo
+                            documentation of plastic packaging practices. Observed both in-store wrapping
+                            and distributor packaging methods.
                         </p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <iconify-icon icon="mdi:book-open-outline" width="24"></iconify-icon>
+                        <iconify-icon icon="mdi:account-voice" width="24"></iconify-icon>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">MARCH 2024</div>
-                        <h3>Educational Campaign Launch</h3>
+                        <div class="timeline-date">FEBRUARY 1, 2025</div>
+                        <h3>First Manager Interview Completed</h3>
                         <p>
-                            Launched first awareness campaign at school. Organized workshops and presentations
-                            to educate students about plastic waste impacts.
+                            Successfully completed manager interview at Supermarket 1. Learned about their
+                            reusable packaging system that returns materials to suppliers and municipal recycling.
+                            Identified key challenges including customer expectations and sanitation concerns.
                         </p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <iconify-icon icon="mdi:draw-pen" width="24"></iconify-icon>
+                        <iconify-icon icon="mdi:store-search" width="24"></iconify-icon>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">APRIL 2024</div>
-                        <h3>Petition Campaign Started</h3>
+                        <div class="timeline-date">FEBRUARY 26, 2025</div>
+                        <h3>Second Supermarket Research</h3>
                         <p>
-                            Launched Change.org petition calling for reduced plastic packaging in supermarkets.
-                            Reached 50 signatures within first week.
+                            Conducted manager interview at Supermarket 2. Discovered their "エフピコ方式"
+                            (Efpico recycling method). Manager highlighted labor-intensive processes and
+                            challenges with contaminated returned items affecting recycling effectiveness.
                         </p>
                     </div>
                 </div>
@@ -547,11 +574,27 @@
                         <iconify-icon icon="mdi:handshake" width="24"></iconify-icon>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">MAY 2024</div>
+                        <div class="timeline-date">ONGOING</div>
                         <h3>Partnership with Toyonaka City Hall</h3>
                         <p>
                             Established partnership with Toyonaka City Hall environmental department.
-                            Gained official support for our initiatives.
+                            Collaborating on community workshops and city-wide sustainability initiatives
+                            to expand awareness and implement plastic reduction solutions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <iconify-icon icon="mdi:lightbulb-on" width="24"></iconify-icon>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">KEY DISCOVERY</div>
+                        <h3>Simple Solution Identified</h3>
+                        <p>
+                            Through manager interviews, identified practical solution: training employees
+                            to ask customers before adding extra bags could significantly reduce plastic
+                            consumption without requiring major system changes or extended implementation periods.
                         </p>
                     </div>
                 </div>
@@ -561,25 +604,12 @@
                         <iconify-icon icon="mdi:chart-line" width="24"></iconify-icon>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">JUNE 2024</div>
-                        <h3>Expanded Research to 6+ Locations</h3>
-                        <p>
-                            Completed comprehensive research across 6+ supermarket locations in the area.
-                            Published detailed findings and recommendations.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <iconify-icon icon="mdi:trophy" width="24"></iconify-icon>
-                    </div>
-                    <div class="timeline-content">
                         <div class="timeline-date">PRESENT</div>
-                        <h3>Continuing Our Mission</h3>
+                        <h3>Expanding Research & Advocacy</h3>
                         <p>
-                            Reached 100+ petition signatures, 1000+ people impacted. Working on expanding
-                            partnerships and implementing sustainable solutions.
+                            Continuing manager interviews and site visits across 6+ supermarket locations.
+                            Building evidence-based recommendations for corporate-level policy changes while
+                            promoting practical, immediate solutions like employee training programs.
                         </p>
                     </div>
                 </div>
@@ -593,54 +623,72 @@
             <h2 class="section-title">Our Key Activities</h2>
             <div class="activities-grid">
                 <div class="activity-card">
-                    <div class="activity-header">
-                        <div class="activity-icon">
-                            <iconify-icon icon="mdi:store" width="32"></iconify-icon>
-                        </div>
-                        <h3>Supermarket Research</h3>
+                    <div class="activity-image">
+                        <img src="../assets/images/Marketvisit26th2025.jpg" alt="SWAP team with supermarket manager during interview on February 26, 2025">
                     </div>
-                    <p>
-                        Comprehensive surveys and data collection across 6+ supermarket locations.
-                        Analyzing packaging practices and identifying opportunities for reduction.
-                    </p>
-                    <a href="research.html" class="activity-link">
-                        View Research Findings
-                        <iconify-icon icon="mdi:arrow-right" width="20"></iconify-icon>
-                    </a>
+                    <div class="activity-body">
+                        <div class="activity-header">
+                            <div class="activity-icon">
+                                <iconify-icon icon="mdi:account-voice" width="32"></iconify-icon>
+                            </div>
+                            <h3>Manager Interviews</h3>
+                        </div>
+                        <p>
+                            Direct conversations with supermarket managers to understand packaging decisions,
+                            recycling systems, and barriers to plastic reduction. Gathering insights on
+                            customer expectations, sanitation concerns, and corporate-level policies.
+                        </p>
+                        <a href="research.html" class="activity-link">
+                            View Research Findings
+                            <iconify-icon icon="mdi:arrow-right" width="20"></iconify-icon>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="activity-card">
-                    <div class="activity-header">
-                        <div class="activity-icon" style="background-color: var(--pastel-green);">
-                            <iconify-icon icon="mdi:draw-pen" width="32"></iconify-icon>
-                        </div>
-                        <h3>Petition Campaign</h3>
+                    <div class="activity-image">
+                        <img src="../assets/images/Marketvisit.jpg" alt="Research documentation board showing plastic packaging examples from supermarkets">
                     </div>
-                    <p>
-                        Change.org petition calling for supermarkets to reduce plastic packaging.
-                        Growing support from community members and local organizations.
-                    </p>
-                    <a href="action.html" class="activity-link">
-                        Sign the Petition
-                        <iconify-icon icon="mdi:arrow-right" width="20"></iconify-icon>
-                    </a>
+                    <div class="activity-body">
+                        <div class="activity-header">
+                            <div class="activity-icon" style="background-color: var(--pastel-green);">
+                                <iconify-icon icon="mdi:recycle" width="32"></iconify-icon>
+                            </div>
+                            <h3>Recycling Systems Analysis</h3>
+                        </div>
+                        <p>
+                            Documenting existing recycling methods including reusable packaging return systems
+                            and エフピコ方式 (Efpico method). Evaluating effectiveness and identifying
+                            challenges like labor costs and contamination issues.
+                        </p>
+                        <a href="research.html" class="activity-link">
+                            Learn More
+                            <iconify-icon icon="mdi:arrow-right" width="20"></iconify-icon>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="activity-card">
-                    <div class="activity-header">
-                        <div class="activity-icon" style="background-color: var(--mint);">
-                            <iconify-icon icon="mdi:handshake" width="32"></iconify-icon>
-                        </div>
-                        <h3>Community Partnerships</h3>
+                    <div class="activity-image">
+                        <img src="../assets/images/eccaction.jpg" alt="SWAP team presenting research findings at ECC Volunteer Center workshop">
                     </div>
-                    <p>
-                        Collaborating with Toyonaka City Hall, ECC Volunteer Center, and local schools
-                        to expand our impact and implement sustainable solutions.
-                    </p>
-                    <a href="action.html" class="activity-link">
-                        Learn More
-                        <iconify-icon icon="mdi:arrow-right" width="20"></iconify-icon>
-                    </a>
+                    <div class="activity-body">
+                        <div class="activity-header">
+                            <div class="activity-icon" style="background-color: var(--mint);">
+                                <iconify-icon icon="mdi:lightbulb-on" width="32"></iconify-icon>
+                            </div>
+                            <h3>Practical Solutions Development</h3>
+                        </div>
+                        <p>
+                            Developing evidence-based, implementable solutions like employee training programs
+                            to ask before adding extra bags. Balancing immediate actions with long-term
+                            corporate policy advocacy for sustainable packaging alternatives.
+                        </p>
+                        <a href="action.html" class="activity-link">
+                            Get Involved
+                            <iconify-icon icon="mdi:arrow-right" width="20"></iconify-icon>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -673,7 +721,7 @@
                     </p>
                     <p>
                         <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
-                        @swapplastictogreen
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
                     </p>
                     <p>
                         <iconify-icon icon="mdi:draw-pen" width="16" style="vertical-align: middle;"></iconify-icon>

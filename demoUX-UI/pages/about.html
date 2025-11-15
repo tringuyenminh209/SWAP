@@ -198,10 +198,16 @@
 
         .sdg-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-6);
-            max-width: 900px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-8);
+            max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .sdg-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .sdg-card {
@@ -210,43 +216,94 @@
             border-radius: var(--radius-round);
             box-shadow: var(--shadow-soft);
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             gap: var(--space-4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
         }
 
-        .sdg-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-medium);
+        .sdg-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pastel-green), var(--pastel-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .sdg-link:hover .sdg-card {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .sdg-link:hover .sdg-card::before {
+            transform: scaleX(1);
         }
 
         .sdg-icon {
-            width: 64px;
-            height: 64px;
+            width: 120px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--pastel-green);
-            border-radius: 50%;
             flex-shrink: 0;
+            overflow: hidden;
+            border-radius: var(--radius-soft);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .sdg-icon iconify-icon {
-            color: var(--white);
-            font-size: 32px;
+        .sdg-link:hover .sdg-icon {
+            transform: scale(1.05);
+        }
+
+        .sdg-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .sdg-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .sdg-content h3 {
             font-family: var(--font-rounded);
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
             color: var(--gray-900);
         }
 
         .sdg-content p {
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .sdg-link-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            color: var(--pastel-blue);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .sdg-link:hover .sdg-link-text {
+            gap: 0.5rem;
         }
 
         /* Team Section */
@@ -401,6 +458,276 @@
             color: var(--gray-100);
         }
 
+        /* Timeline Section */
+        .timeline {
+            background-color: var(--white);
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--pastel-green), var(--pastel-blue));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background-color: var(--sand);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .timeline-date {
+            font-family: var(--font-rounded);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--pastel-green);
+            margin-bottom: var(--space-4);
+        }
+
+        .timeline-content h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .timeline-content p {
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            background-color: var(--white);
+            border: 4px solid var(--pastel-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .timeline-marker iconify-icon {
+            color: var(--pastel-green);
+            font-size: 24px;
+        }
+
+        /* Values Section */
+        .values {
+            background-color: var(--sand);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .value-card {
+            background-color: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--pastel-green), var(--mint));
+            border-radius: 50%;
+        }
+
+        .value-icon iconify-icon {
+            color: var(--white);
+            font-size: 40px;
+        }
+
+        .value-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .value-card p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Impact Stats */
+        .impact {
+            background-color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--pastel-green), var(--mint));
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-number {
+            font-family: var(--font-rounded);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: var(--space-4);
+        }
+
+        .stat-label {
+            font-family: var(--font-rounded);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        /* Partnerships Section */
+        .partnerships {
+            background-color: var(--sand);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .partner-card {
+            background-color: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--sand);
+            border-radius: var(--radius-soft);
+        }
+
+        .partner-logo iconify-icon {
+            font-size: 48px;
+            color: var(--pastel-green);
+        }
+
+        .partner-info h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-info p {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--sand);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .faq-question {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+        }
+
+        .faq-question iconify-icon {
+            color: var(--pastel-green);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .faq-answer {
+            color: var(--gray-700);
+            line-height: 1.7;
+            padding-left: calc(var(--space-4) + 24px);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .page-header h1 {
@@ -417,6 +744,28 @@
 
             .team-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .timeline-container::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: 60px;
+            }
+
+            .timeline-marker {
+                left: 20px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .partner-card {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -480,6 +829,188 @@
         </div>
     </section>
 
+    <!-- Timeline -->
+    <section class="section timeline">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">
+                From a school project to a community movement - here's how SWAP evolved
+            </p>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">SEPTEMBER 2024</div>
+                        <h3>The Idea Sparks</h3>
+                        <p>
+                            SWAP was born during a high school environmental science class discussion about
+                            Japan's plastic waste challenge. Founder Annabelle Siddons recognized the need
+                            for student-led action targeting supermarket packaging.
+                        </p>
+                    </div>
+                    <div class="timeline-marker">
+                        <iconify-icon icon="mdi:lightbulb" width="24"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">NOVEMBER 2024</div>
+                        <h3>First Research Visit</h3>
+                        <p>
+                            Conducted initial supermarket research, documenting packaging practices and
+                            interviewing managers. The findings revealed the complexity of the plastic
+                            packaging issue and inspired our evidence-based approach.
+                        </p>
+                    </div>
+                    <div class="timeline-marker">
+                        <iconify-icon icon="mdi:magnify" width="24"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">JANUARY 2025</div>
+                        <h3>Official Launch & Partnerships</h3>
+                        <p>
+                            SWAP officially launched with a team of dedicated volunteers. Established
+                            partnerships with ECC Volunteer Center and began systematic research across
+                            6+ supermarket locations.
+                        </p>
+                    </div>
+                    <div class="timeline-marker">
+                        <iconify-icon icon="mdi:rocket-launch" width="24"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">MARCH 2025</div>
+                        <h3>Toyonaka City Hall Partnership</h3>
+                        <p>
+                            Secured official partnership with Toyonaka City Hall's Environmental Department,
+                            gaining governmental support and resources to expand our community impact and
+                            policy advocacy efforts.
+                        </p>
+                    </div>
+                    <div class="timeline-marker">
+                        <iconify-icon icon="mdi:handshake" width="24"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">ONGOING</div>
+                        <h3>Growing Movement</h3>
+                        <p>
+                            Today, SWAP continues to grow with 75+ active volunteers, expanding research,
+                            advocacy campaigns, and community education programs. Our movement is gaining
+                            momentum across Osaka and beyond.
+                        </p>
+                    </div>
+                    <div class="timeline-marker">
+                        <iconify-icon icon="mdi:chart-line-variant" width="24"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section values">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-subtitle">
+                The principles that guide everything we do at SWAP
+            </p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <iconify-icon icon="mdi:sprout" width="40"></iconify-icon>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>
+                        We believe in creating lasting environmental change through practical,
+                        scalable solutions that benefit both people and the planet.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(135deg, var(--pastel-blue), var(--sky));">
+                        <iconify-icon icon="mdi:account-group" width="40"></iconify-icon>
+                    </div>
+                    <h3>Youth Leadership</h3>
+                    <p>
+                        Young people have unique perspectives and the power to drive change.
+                        We empower students to lead environmental activism in their communities.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(135deg, var(--mint), var(--pastel-green));">
+                        <iconify-icon icon="mdi:flask" width="40"></iconify-icon>
+                    </div>
+                    <h3>Evidence-Based Action</h3>
+                    <p>
+                        Our advocacy is grounded in rigorous research and data. We believe
+                        facts and evidence create the strongest foundation for change.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(135deg, var(--sky), var(--mint));">
+                        <iconify-icon icon="mdi:handshake" width="40"></iconify-icon>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>
+                        We work together with businesses, government, and communities to find
+                        solutions that work for everyone, not against anyone.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="section impact">
+        <div class="container">
+            <h2 class="section-title">Our Impact by Numbers</h2>
+            <p class="section-subtitle">
+                Measuring the difference we're making together
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">75+</div>
+                    <div class="stat-label">Active Volunteers</div>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--pastel-blue), var(--sky));">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Supermarkets Researched</div>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--mint), var(--pastel-green));">
+                    <div class="stat-number">8,000+</div>
+                    <div class="stat-label">People Reached</div>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--sky), var(--mint));">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">Volunteer Hours</div>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--pastel-green), var(--mint));">
+                    <div class="stat-number">36+</div>
+                    <div class="stat-label">Community Events</div>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--mint), var(--sky));">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Products Documented</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SDGs Alignment -->
     <section class="section sdgs">
         <div class="container">
@@ -488,33 +1019,51 @@
                 SWAP is committed to supporting the United Nations Sustainable Development Goals
             </p>
             <div class="sdg-grid">
-                <div class="sdg-card">
-                    <div class="sdg-icon">
-                        <iconify-icon icon="mdi:recycle" width="32"></iconify-icon>
+                <a href="https://sdgs.un.org/goals/goal12" target="_blank" rel="noopener noreferrer" class="sdg-link">
+                    <div class="sdg-card">
+                        <div class="sdg-icon">
+                            <img src="../assets/images/SDGs12.gif" alt="SDG 12 - Responsible Consumption and Production">
+                        </div>
+                        <div class="sdg-content">
+                            <h3>SDG 12</h3>
+                            <p>Responsible Consumption and Production - Reducing waste and promoting sustainable practices in supermarkets</p>
+                            <span class="sdg-link-text">
+                                Learn more
+                                <iconify-icon icon="mdi:arrow-right" width="16"></iconify-icon>
+                            </span>
+                        </div>
                     </div>
-                    <div class="sdg-content">
-                        <h3>SDG 12</h3>
-                        <p>Responsible Consumption and Production - Reducing waste and promoting sustainable practices</p>
+                </a>
+                <a href="https://sdgs.un.org/goals/goal13" target="_blank" rel="noopener noreferrer" class="sdg-link">
+                    <div class="sdg-card">
+                        <div class="sdg-icon">
+                            <img src="../assets/images/SDGs13.png" alt="SDG 13 - Climate Action">
+                        </div>
+                        <div class="sdg-content">
+                            <h3>SDG 13</h3>
+                            <p>Climate Action - Combating climate change by reducing plastic pollution and promoting eco-friendly alternatives</p>
+                            <span class="sdg-link-text">
+                                Learn more
+                                <iconify-icon icon="mdi:arrow-right" width="16"></iconify-icon>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="sdg-card">
-                    <div class="sdg-icon" style="background-color: var(--pastel-blue);">
-                        <iconify-icon icon="mdi:earth" width="32"></iconify-icon>
+                </a>
+                <a href="https://sdgs.un.org/goals/goal14" target="_blank" rel="noopener noreferrer" class="sdg-link">
+                    <div class="sdg-card">
+                        <div class="sdg-icon">
+                            <img src="../assets/images/SDGs14.png" alt="SDG 14 - Life Below Water">
+                        </div>
+                        <div class="sdg-content">
+                            <h3>SDG 14</h3>
+                            <p>Life Below Water - Protecting marine ecosystems from plastic pollution by reducing single-use plastics at the source</p>
+                            <span class="sdg-link-text">
+                                Learn more
+                                <iconify-icon icon="mdi:arrow-right" width="16"></iconify-icon>
+                            </span>
+                        </div>
                     </div>
-                    <div class="sdg-content">
-                        <h3>SDG 13</h3>
-                        <p>Climate Action - Combating climate change by reducing plastic pollution</p>
-                    </div>
-                </div>
-                <div class="sdg-card">
-                    <div class="sdg-icon" style="background-color: var(--mint);">
-                        <iconify-icon icon="mdi:waves" width="32"></iconify-icon>
-                    </div>
-                    <div class="sdg-content">
-                        <h3>SDG 14</h3>
-                        <p>Life Below Water - Protecting marine ecosystems from plastic pollution</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -526,16 +1075,22 @@
             <p class="section-subtitle">
                 Dedicated students working together to create a plastic-free future
             </p>
-            <div class="team-grid">
+
+            <!-- Leadership -->
+            <h3 style="font-family: var(--font-rounded); font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: var(--space-8); color: var(--gray-900);">
+                Leadership
+            </h3>
+            <div class="team-grid" style="margin-bottom: var(--space-16);">
                 <div class="team-card">
                     <div class="team-photo">
                         <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
                     </div>
                     <div class="team-info">
                         <h3>Annabelle Siddons</h3>
+                        <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">シドンズ・アナベル</p>
                         <p class="team-role">Founder & President</p>
                         <p class="team-bio">
-                            Annabelle founded SWAP with a vision to reduce plastic waste in Japanese
+                            Annabelle founded SWAP in February with a vision to reduce plastic waste in Japanese
                             supermarkets. She leads our advocacy efforts and coordinates partnerships
                             with local businesses and organizations.
                         </p>
@@ -546,11 +1101,13 @@
                         <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
                     </div>
                     <div class="team-info">
-                        <h3>Research Team</h3>
-                        <p class="team-role">Data & Analysis</p>
+                        <h3>Hayato Hoori</h3>
+                        <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">祝部・颯音</p>
+                        <p class="team-role">Translator & Vice President</p>
                         <p class="team-bio">
-                            Our research team conducts supermarket surveys, collects data on packaging
-                            practices, and analyzes trends in plastic usage to inform our advocacy strategies.
+                            Hayato joined SWAP in March and serves as our translator and Vice President.
+                            He bridges communication between Japanese and international stakeholders and
+                            supports organizational leadership.
                         </p>
                     </div>
                 </div>
@@ -559,12 +1116,326 @@
                         <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
                     </div>
                     <div class="team-info">
-                        <h3>Outreach Team</h3>
-                        <p class="team-role">Community Engagement</p>
+                        <h3>Ellen Tanabe</h3>
+                        <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">田辺・エレン</p>
+                        <p class="team-role">Social Media Coordinator</p>
                         <p class="team-bio">
-                            Our outreach team organizes workshops, campaigns, and educational events to
-                            raise awareness about plastic waste and promote sustainable alternatives.
+                            Ellen joined in June and manages SWAP's social media presence. She creates
+                            engaging content, coordinates campaigns, and helps spread awareness about
+                            plastic waste issues across digital platforms.
                         </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Members by Team -->
+            <h3 style="font-family: var(--font-rounded); font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: var(--space-8); color: var(--gray-900);">
+                Team Members
+            </h3>
+
+            <!-- Research Team -->
+            <div style="margin-bottom: var(--space-12);">
+                <h4 style="font-family: var(--font-rounded); font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: var(--space-6); color: var(--pastel-green);">
+                    <iconify-icon icon="mdi:flask" width="32" style="vertical-align: middle; margin-right: 0.5rem;"></iconify-icon>
+                    Research Team
+                </h4>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto var(--space-8); color: var(--gray-700);">
+                    Our research team conducts supermarket surveys, collects data on packaging practices,
+                    and analyzes trends in plastic usage to inform our advocacy strategies.
+                </p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--pastel-green) 0%, var(--mint) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Kazuya Ito</h3>
+                            <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">伊東 和哉</p>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Kazuya joined SWAP in May. He contributes to supermarket research,
+                                data collection, and packaging analysis.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--sky) 0%, var(--pastel-blue) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Misaki Suehiro</h3>
+                            <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">末廣 美咲</p>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Misaki joined in May and supports our research initiatives through
+                                field surveys and documentation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--mint) 0%, var(--pastel-green) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Nguyen Minh Tri</h3>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Tri joined in May and assists with research data analysis and
+                                documentation efforts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Outreach Team -->
+            <div style="margin-bottom: var(--space-12);">
+                <h4 style="font-family: var(--font-rounded); font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: var(--space-6); color: var(--pastel-blue);">
+                    <iconify-icon icon="mdi:account-group" width="32" style="vertical-align: middle; margin-right: 0.5rem;"></iconify-icon>
+                    Community Outreach Team
+                </h4>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto var(--space-8); color: var(--gray-700);">
+                    Our outreach team organizes workshops, campaigns, and educational events to
+                    raise awareness about plastic waste and promote sustainable alternatives.
+                </p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--sky) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Asrorkulov Firdavs Rafik Ugli</h3>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Firdavs joined in May and contributes to community engagement
+                                and outreach activities.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--mint) 0%, var(--sky) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Chan Myae Kyaw</h3>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Chan joined in May and supports our community outreach programs
+                                and awareness campaigns.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Development Team -->
+            <div>
+                <h4 style="font-family: var(--font-rounded); font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: var(--space-6); color: var(--sky);">
+                    <iconify-icon icon="mdi:code-tags" width="32" style="vertical-align: middle; margin-right: 0.5rem;"></iconify-icon>
+                    Web Development Team
+                </h4>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto var(--space-8); color: var(--gray-700);">
+                    Our web development team builds and maintains SWAP's digital presence, creating
+                    websites and online tools to amplify our message and reach.
+                </p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--sky) 0%, var(--pastel-blue) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Kumamoto Sora</h3>
+                            <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">熊本 颯天</p>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Sora contributes to web development, helping build and maintain
+                                SWAP's online presence and digital tools.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--mint) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Kurimune Ayumu</h3>
+                            <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">栗宗 歩夢</p>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Ayumu works on web development projects, creating engaging digital
+                                experiences for SWAP's audience.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo" style="background: linear-gradient(135deg, var(--mint) 0%, var(--sky) 100%);">
+                            <iconify-icon icon="mdi:account-circle" width="120"></iconify-icon>
+                        </div>
+                        <div class="team-info">
+                            <h3>Kouno Rikuto</h3>
+                            <p style="font-size: 0.875rem; color: var(--gray-700); margin-bottom: 0.5rem;">河野 陸人</p>
+                            <p class="team-role">Member</p>
+                            <p class="team-bio">
+                                Rikuto supports web development initiatives, helping design and
+                                implement SWAP's digital platforms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships -->
+    <section class="section partnerships">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <p class="section-subtitle">
+                Working together with organizations that share our vision for a plastic-free future
+            </p>
+            <div class="partners-grid">
+                <a href="toyonaka-partnership.html" style="text-decoration: none; color: inherit;">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <iconify-icon icon="mdi:office-building" width="48"></iconify-icon>
+                        </div>
+                        <div class="partner-info">
+                            <h3>Toyonaka City Hall</h3>
+                            <p>
+                                Official partnership with the Environmental Department for city-wide
+                                sustainability initiatives and policy development.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="ecc-volunteer.html" style="text-decoration: none; color: inherit;">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <iconify-icon icon="mdi:school" width="48"></iconify-icon>
+                        </div>
+                        <div class="partner-info">
+                            <h3>ECC Volunteer Center</h3>
+                            <p>
+                                Collaboration with ECC Kokusai Gaikokugo for volunteer recruitment,
+                                events, and student engagement programs.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <iconify-icon icon="mdi:store" width="48"></iconify-icon>
+                    </div>
+                    <div class="partner-info">
+                        <h3>Local Supermarkets</h3>
+                        <p>
+                            Working relationships with 6+ supermarket locations across Osaka for
+                            research access and sustainable packaging advocacy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">
+                Everything you need to know about SWAP
+            </p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <iconify-icon icon="mdi:help-circle" width="24"></iconify-icon>
+                        <span>Who can join SWAP?</span>
+                    </div>
+                    <div class="faq-answer">
+                        SWAP welcomes anyone passionate about reducing plastic waste! While we started
+                        as a high school student initiative, we now have volunteers from all backgrounds
+                        including university students, young professionals, and community members. No
+                        prior experience in environmental activism is required.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <iconify-icon icon="mdi:help-circle" width="24"></iconify-icon>
+                        <span>How much time commitment is required?</span>
+                    </div>
+                    <div class="faq-answer">
+                        We offer flexible volunteer opportunities! Most volunteers commit 4-8 hours per
+                        month, but you can participate as much or as little as your schedule allows.
+                        We have one-time events, ongoing projects, and leadership roles available.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <iconify-icon icon="mdi:help-circle" width="24"></iconify-icon>
+                        <span>Do I need to speak Japanese?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Not necessarily! While some of our work involves engaging with Japanese-speaking
+                        supermarket managers and community members, we have many roles that don't require
+                        Japanese fluency. We have a bilingual team and can match you with tasks that fit
+                        your language abilities.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <iconify-icon icon="mdi:help-circle" width="24"></iconify-icon>
+                        <span>What kind of activities does SWAP do?</span>
+                    </div>
+                    <div class="faq-answer">
+                        SWAP's work includes: supermarket packaging research and data collection, community
+                        workshops and educational events, advocacy meetings with businesses and government,
+                        social media campaigns, petition drives, and collaboration with partner organizations.
+                        There's something for everyone!
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <iconify-icon icon="mdi:help-circle" width="24"></iconify-icon>
+                        <span>How can businesses partner with SWAP?</span>
+                    </div>
+                    <div class="faq-answer">
+                        We welcome partnerships with businesses committed to sustainability! Supermarkets
+                        can work with us on packaging audits and pilot programs. Other businesses can
+                        sponsor events, provide resources, or collaborate on community initiatives. Contact
+                        us at swapplastictogreen@gmail.com to discuss partnership opportunities.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <iconify-icon icon="mdi:help-circle" width="24"></iconify-icon>
+                        <span>Has SWAP achieved any concrete results?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We've documented packaging practices at 6+ supermarket locations, reached
+                        over 8,000 people through events and campaigns, established official partnerships
+                        with Toyonaka City Hall and ECC, and contributed research to municipal sustainability
+                        planning. Some supermarkets we've engaged with have started pilot programs for
+                        plastic reduction.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <iconify-icon icon="mdi:help-circle" width="24"></iconify-icon>
+                        <span>How can I support SWAP if I can't volunteer?</span>
+                    </div>
+                    <div class="faq-answer">
+                        There are many ways to support our mission! Sign our petition, follow us on
+                        Instagram (@swapplastictogreen), share our posts to spread awareness, choose
+                        products with minimal packaging when shopping, bring reusable bags and containers,
+                        and talk to your friends and family about plastic waste. Every action counts!
                     </div>
                 </div>
             </div>
@@ -613,7 +1484,7 @@
                     </p>
                     <p>
                         <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
-                        @swapplastictogreen
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
                     </p>
                     <p>
                         <iconify-icon icon="mdi:draw-pen" width="16" style="vertical-align: middle;"></iconify-icon>

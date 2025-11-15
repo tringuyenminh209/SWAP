@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket Engagement - SWAP</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <style>
+        :root {
+            --pastel-green: #B8E6B8;
+            --pastel-blue: #A7C7E7;
+            --cream: #FFFDD0;
+            --mint: #C1F0C1;
+            --sky: #B9D9EB;
+            --sand: #F5EFE0;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+            --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+            --font-rounded: 'Nunito', 'Quicksand', sans-serif;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --radius-soft: 12px;
+            --radius-round: 20px;
+            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        header {
+            background-color: var(--white);
+            padding: var(--space-4) 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pastel-green);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-blue);
+            color: var(--gray-900);
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .breadcrumb {
+            padding: var(--space-4) 0;
+            background-color: var(--white);
+        }
+
+        .breadcrumb a {
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--pastel-green);
+        }
+
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            color: var(--gray-700);
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, var(--mint) 0%, var(--pastel-green) 100%);
+            padding: var(--space-16) 0;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: var(--space-6);
+            align-items: center;
+            margin-bottom: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-800);
+            font-size: 0.9375rem;
+        }
+
+        .article-title {
+            font-family: var(--font-rounded);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+            line-height: 1.2;
+        }
+
+        .article-subtitle {
+            font-size: 1.375rem;
+            color: var(--gray-800);
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: calc(var(--space-8) * -1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .article-content {
+            background-color: var(--white);
+            padding: var(--space-16) 0;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-wrapper h2 {
+            font-family: var(--font-rounded);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-top: var(--space-12);
+            margin-bottom: var(--space-6);
+        }
+
+        .content-wrapper h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-wrapper h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+        }
+
+        .content-wrapper p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: var(--space-6);
+        }
+
+        .content-wrapper ul {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: var(--space-6);
+            padding-left: 2rem;
+        }
+
+        .content-wrapper li {
+            margin-bottom: var(--space-4);
+        }
+
+        .highlight-box {
+            background-color: var(--sand);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            margin: var(--space-8) 0;
+            border-left: 4px solid var(--mint);
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--pastel-green);
+        }
+
+        .impact-stats {
+            background-color: var(--sand);
+            padding: var(--space-16) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-number {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--mint);
+            margin-bottom: var(--space-4);
+        }
+
+        .stat-label {
+            font-family: var(--font-rounded);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .cta-section {
+            background-color: var(--mint);
+            padding: var(--space-16) 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-rounded);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 0 auto var(--space-8);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--gray-900);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--gray-900);
+            margin-left: var(--space-4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-6);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            color: var(--pastel-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray-100);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--pastel-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-100);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.25rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .featured-image img {
+                height: 300px;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: var(--space-4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="homepage.html" class="logo">
+                <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
+                <span>SWAP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="action.html">Action</a></li>
+                <li><a href="goals.html">Goals</a></li>
+            </ul>
+            <button class="lang-switch">
+                <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
+                日本語
+            </button>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="homepage.html">Home</a>
+            <span>/</span>
+            <a href="action.html">Action</a>
+            <span>/</span>
+            <span style="color: var(--mint); font-weight: 600;">Supermarket Engagement</span>
+        </div>
+    </section>
+
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <div class="article-meta">
+                <div class="meta-item">
+                    <iconify-icon icon="mdi:calendar" width="20"></iconify-icon>
+                    <span>January 2025 - Present</span>
+                </div>
+                <div class="meta-item">
+                    <iconify-icon icon="mdi:store" width="20"></iconify-icon>
+                    <span>Direct Business Advocacy</span>
+                </div>
+                <div class="meta-item">
+                    <iconify-icon icon="mdi:chart-line" width="20"></iconify-icon>
+                    <span>6+ Locations</span>
+                </div>
+            </div>
+            <h1 class="article-title">Supermarket Engagement</h1>
+            <p class="article-subtitle">
+                Working directly with supermarkets to encourage sustainable packaging alternatives
+                through research, dialogue, and practical solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Image -->
+    <div class="container">
+        <div class="featured-image">
+            <img src="../assets/images/1.jpg" alt="SWAP petition campaign at supermarket plastic bags section">
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>Our Research-Based Approach</h2>
+                <p>
+                    SWAP's supermarket engagement strategy is built on rigorous research and evidence-based
+                    advocacy. Rather than simply criticizing plastic usage, we work to understand the
+                    challenges supermarkets face and present viable alternatives that benefit both
+                    businesses and the environment.
+                </p>
+                <p>
+                    Since January 2025, we've conducted comprehensive research at 6+ supermarket locations
+                    across Osaka, documenting packaging practices, interviewing managers, and analyzing
+                    consumer behavior. This research forms the foundation of our constructive dialogue
+                    with supermarket chains.
+                </p>
+
+                <h2>Our Four-Step Engagement Process</h2>
+
+                <h3>1. Comprehensive Packaging Audits</h3>
+                <p>
+                    Our first step is systematic documentation of current packaging practices at each
+                    supermarket location:
+                </p>
+                <ul>
+                    <li><strong>Product Category Analysis:</strong> We examine packaging across produce, meats, prepared foods, bakery items, and more</li>
+                    <li><strong>Plastic Type Documentation:</strong> Identifying types of plastics used (PET, PS, PE, PVC) and their recyclability</li>
+                    <li><strong>Excess Packaging Assessment:</strong> Documenting instances of unnecessary double or triple packaging</li>
+                    <li><strong>Photographic Evidence:</strong> Creating visual documentation to support our findings</li>
+                    <li><strong>Comparative Analysis:</strong> Benchmarking against best practices from other stores and regions</li>
+                </ul>
+
+                <h3>2. Presenting Alternative Solutions</h3>
+                <p>
+                    Once we've completed our research, we schedule meetings with store managers and
+                    corporate sustainability teams to present our findings and alternatives:
+                </p>
+                <ul>
+                    <li><strong>Cost-Benefit Analysis:</strong> Demonstrating how sustainable alternatives can reduce costs over time</li>
+                    <li><strong>エフピコ方式 (Efpico Method):</strong> Highlighting successful in-store recycling systems already in use at some locations</li>
+                    <li><strong>Reusable Container Programs:</strong> Proposing bring-your-own-container options for produce and deli items</li>
+                    <li><strong>Paper and Compostable Alternatives:</strong> Identifying suitable replacements for specific plastic applications</li>
+                    <li><strong>Consumer Education Materials:</strong> Offering to help create signage and information about sustainable choices</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Key Finding: The Three Reasons for Plastic</h3>
+                    <p>
+                        Through manager interviews, we identified three primary reasons supermarkets rely
+                        on plastic packaging: <strong>(1) Operational Efficiency</strong> - plastic is
+                        faster for staff to apply, <strong>(2) Product Quality Protection</strong> - extends
+                        shelf life and prevents damage, and <strong>(3) Tampering Prevention</strong> -
+                        sealed packages provide security. Our solutions address all three concerns while
+                        reducing plastic usage.
+                    </p>
+                </div>
+
+                <h3>3. Highlighting Successful Case Studies</h3>
+                <p>
+                    We strengthen our advocacy by sharing examples of supermarkets that have successfully
+                    reduced plastic packaging:
+                </p>
+                <ul>
+                    <li><strong>International Examples:</strong> UK supermarket chains that eliminated plastic bags and excessive produce packaging</li>
+                    <li><strong>Japanese Success Stories:</strong> Stores in Tokyo and Kyoto implementing innovative plastic reduction programs</li>
+                    <li><strong>エフピコ方式 Details:</strong> In-depth explanation of the recycling tray system we observed at certain locations</li>
+                    <li><strong>Consumer Response Data:</strong> Evidence showing customer appreciation for plastic reduction efforts</li>
+                    <li><strong>Economic Benefits:</strong> Cost savings achieved by stores that reduced packaging</li>
+                </ul>
+
+                <h3>4. Building Long-Term Relationships</h3>
+                <p>
+                    Sustainable change doesn't happen overnight. We maintain ongoing relationships
+                    with supermarket managers and staff:
+                </p>
+                <ul>
+                    <li><strong>Regular Follow-Ups:</strong> Monthly check-ins to discuss progress and address challenges</li>
+                    <li><strong>Feedback Loops:</strong> Gathering input from managers about what's working and what isn't</li>
+                    <li><strong>Collaborative Problem-Solving:</strong> Working together to overcome obstacles to plastic reduction</li>
+                    <li><strong>Recognition Programs:</strong> Publicly acknowledging stores that make meaningful improvements</li>
+                    <li><strong>Corporate Connections:</strong> Escalating successful local partnerships to corporate sustainability offices</li>
+                </ul>
+
+                <h2>Research Findings from Our Supermarket Visits</h2>
+
+                <h3>Packaging Practices Across Categories</h3>
+                <p>
+                    Our research revealed significant variations in packaging practices:
+                </p>
+                <ul>
+                    <li><strong>Produce Section:</strong> Excessive use of plastic bags and foam trays for items that don't require packaging (bananas, onions, squash)</li>
+                    <li><strong>Meat & Fish:</strong> Heavy reliance on styrofoam trays and plastic wrap, though some stores offer エフピコ recycling</li>
+                    <li><strong>Prepared Foods:</strong> Multiple layers of packaging (container + lid + outer wrap) common</li>
+                    <li><strong>Bakery Items:</strong> Plastic bags standard, though paper bags available at some locations</li>
+                    <li><strong>Checkout Area:</strong> Plastic shopping bags still common despite national bag charge policy</li>
+                </ul>
+
+                <h3>Manager Interview Insights</h3>
+                <p>
+                    Our conversations with supermarket managers revealed important perspectives:
+                </p>
+                <ul>
+                    <li>Many managers are personally concerned about plastic waste but face corporate-level constraints</li>
+                    <li>Staff training is key—at one location, employees are trained to ask customers before adding extra bags</li>
+                    <li>Customer expectations are a significant barrier; some shoppers expect high levels of packaging</li>
+                    <li>Economic pressures make it difficult to invest in alternative packaging without clear ROI</li>
+                    <li>Successful changes often start small and scale up based on customer response</li>
+                </ul>
+
+                <h3>The エフピコ方式 (Efpico Method)</h3>
+                <p>
+                    One of our most significant discoveries was the エフピコ方式 recycling system used
+                    at select supermarkets. This system allows customers to return used food trays,
+                    which are then recycled into new trays. Key features include:
+                </p>
+                <ul>
+                    <li>Dedicated collection bins at store entrances for clean, used trays</li>
+                    <li>Clear signage explaining the recycling process and what can be returned</li>
+                    <li>Closed-loop system that demonstrates circular economy principles</li>
+                    <li>High participation rates when customers are educated about the program</li>
+                    <li>Potential model for expanding to other types of packaging</li>
+                </ul>
+
+                <h2>Challenges We're Addressing</h2>
+                <p>
+                    Our supermarket engagement work faces several challenges:
+                </p>
+                <ul>
+                    <li><strong>Corporate Decision-Making:</strong> Individual store managers often lack authority to change packaging policies</li>
+                    <li><strong>Supply Chain Complexity:</strong> Many products arrive pre-packaged from distributors</li>
+                    <li><strong>Cost Concerns:</strong> Alternative materials may have higher upfront costs</li>
+                    <li><strong>Consumer Habits:</strong> Some customers resist change and prefer familiar packaging</li>
+                    <li><strong>Food Safety Regulations:</strong> Strict hygiene requirements can limit packaging alternatives</li>
+                </ul>
+                <p>
+                    We address these challenges by focusing on win-win solutions, providing economic
+                    justification, and working within existing regulatory frameworks.
+                </p>
+
+                <h2>Looking Forward</h2>
+                <p>
+                    Our supermarket engagement strategy continues to evolve:
+                </p>
+                <ul>
+                    <li>Expanding research to more supermarket chains across Osaka and beyond</li>
+                    <li>Developing a "Green Supermarket" certification program in partnership with Toyonaka City Hall</li>
+                    <li>Creating consumer education materials to shift shopper expectations</li>
+                    <li>Building coalitions with other environmental groups for greater advocacy impact</li>
+                    <li>Pursuing media coverage to highlight stores making positive changes</li>
+                </ul>
+                <p>
+                    By maintaining respectful, research-based dialogue with supermarkets, we believe
+                    we can create systemic change that benefits businesses, consumers, and the environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact-stats">
+        <div class="container">
+            <h2 style="font-family: var(--font-rounded); font-size: 3rem; font-weight: 700; text-align: center; margin-bottom: var(--space-12); color: var(--gray-900);">
+                Research Impact
+            </h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Locations Researched</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Manager Interviews</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Products Documented</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Corporate Meetings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Support Our Advocacy</h2>
+            <p>
+                Help us encourage supermarkets to adopt sustainable packaging. Sign our petition
+                and share your voice for change!
+            </p>
+            <div>
+                <a href="action.html#petition" class="btn btn-primary">
+                    <iconify-icon icon="mdi:draw-pen" width="20"></iconify-icon>
+                    Sign Petition
+                </a>
+                <a href="action.html" class="btn btn-secondary">
+                    <iconify-icon icon="mdi:arrow-left" width="20"></iconify-icon>
+                    Back to Action
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SWAP</h4>
+                    <p>Stop Waste And Plastic</p>
+                    <p style="margin-top: 1rem;">
+                        High school student-led initiative tackling plastic waste in Japanese supermarkets.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="homepage.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="progress.html">Progress</a>
+                    <a href="action.html">Take Action</a>
+                    <a href="goals.html">Goals</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        <iconify-icon icon="mdi:email-outline" width="16" style="vertical-align: middle;"></iconify-icon>
+                        swapplastictogreen@gmail.com
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SWAP - Stop Waste And Plastic. Made with 💚 by SWAP Team.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

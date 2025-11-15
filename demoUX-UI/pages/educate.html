@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educate - SWAP | Stop Waste And Plastic</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <style>
+        /* CSS Variables - Design System */
+        :root {
+            --pastel-green: #B8E6B8;
+            --pastel-blue: #A7C7E7;
+            --cream: #FFFDD0;
+            --mint: #C1F0C1;
+            --sky: #B9D9EB;
+            --sand: #F5EFE0;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+            --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+            --font-rounded: 'Nunito', 'Quicksand', sans-serif;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --radius-soft: 12px;
+            --radius-round: 20px;
+            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: var(--space-4) 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pastel-green);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-blue);
+            color: var(--gray-900);
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: var(--space-16) 0 var(--space-8);
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--sky) 100%);
+        }
+
+        .page-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto var(--space-6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+
+        .page-icon iconify-icon {
+            color: var(--pastel-blue);
+            font-size: 60px;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-rounded);
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-header .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section */
+        .section {
+            padding: var(--space-16) 0;
+        }
+
+        .section-title {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
+        }
+
+        /* Overview */
+        .overview {
+            background-color: var(--white);
+        }
+
+        .overview-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .overview-content p {
+            margin-bottom: var(--space-6);
+        }
+
+        /* Programs */
+        .programs {
+            background-color: var(--sand);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .program-card {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .program-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--pastel-blue);
+            border-radius: 50%;
+            margin-bottom: var(--space-6);
+        }
+
+        .program-icon iconify-icon {
+            color: var(--white);
+            font-size: 32px;
+        }
+
+        .program-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .program-card p {
+            color: var(--gray-700);
+            margin-bottom: var(--space-4);
+        }
+
+        .program-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .program-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-700);
+        }
+
+        .program-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--pastel-green);
+            font-weight: 700;
+        }
+
+        /* Workshops */
+        .workshops {
+            background-color: var(--white);
+        }
+
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .workshop-card {
+            background-color: var(--sand);
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .workshop-image {
+            width: 100%;
+            height: 250px;
+        }
+
+        .workshop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .workshop-content {
+            padding: var(--space-8);
+        }
+
+        .workshop-content h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .workshop-content p {
+            color: var(--gray-700);
+            margin-bottom: var(--space-4);
+        }
+
+        .workshop-stats {
+            display: flex;
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat iconify-icon {
+            color: var(--pastel-blue);
+        }
+
+        .stat-text {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        /* CTA */
+        .cta {
+            background-color: var(--pastel-blue);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            margin-bottom: var(--space-8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background-color: var(--gray-900);
+            color: var(--white);
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-6);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            color: var(--pastel-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray-100);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--pastel-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="homepage.html" class="logo">
+                <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
+                <span>SWAP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="action.html">Action</a></li>
+                <li><a href="goals.html">Goals</a></li>
+            </ul>
+            <button class="lang-switch">
+                <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
+                日本語
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-icon">
+                <iconify-icon icon="mdi:book-open-outline" width="60"></iconify-icon>
+            </div>
+            <h1>Educate</h1>
+            <p class="subtitle">
+                Raising awareness about the environmental impact of plastic waste through
+                workshops, campaigns, and educational programs
+            </p>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="section overview">
+        <div class="container">
+            <h2 class="section-title">Our Educational Mission</h2>
+            <div class="overview-content">
+                <p>
+                    Education is at the heart of lasting change. We believe that when people understand
+                    the true impact of plastic waste on our environment, communities, and future,
+                    they become powerful advocates for change.
+                </p>
+                <p>
+                    Through engaging workshops, interactive campaigns, and accessible educational
+                    materials, we make environmental science approachable and actionable. We don't
+                    just share facts – we inspire action through stories, data, and practical solutions.
+                </p>
+                <p>
+                    Our education programs reach students, families, and community members across
+                    Toyonaka, creating a ripple effect of environmental awareness and sustainable practices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Programs -->
+    <section class="section programs">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-icon">
+                        <iconify-icon icon="mdi:school" width="32"></iconify-icon>
+                    </div>
+                    <h3>School Workshops</h3>
+                    <p>
+                        Interactive presentations at schools teaching students about plastic pollution,
+                        recycling systems, and sustainable alternatives.
+                    </p>
+                    <ul>
+                        <li>Reached 8+ schools</li>
+                        <li>Engaged 500+ students</li>
+                        <li>Interactive activities</li>
+                        <li>Age-appropriate content</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-icon" style="background-color: var(--pastel-green);">
+                        <iconify-icon icon="mdi:account-multiple" width="32"></iconify-icon>
+                    </div>
+                    <h3>Community Events</h3>
+                    <p>
+                        Public awareness campaigns and community gatherings to educate about
+                        plastic waste reduction and local environmental initiatives.
+                    </p>
+                    <ul>
+                        <li>15+ workshops conducted</li>
+                        <li>1000+ people reached</li>
+                        <li>Partnership with ECC</li>
+                        <li>Bilingual materials</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-icon" style="background-color: var(--mint);">
+                        <iconify-icon icon="mdi:web" width="32"></iconify-icon>
+                    </div>
+                    <h3>Online Resources</h3>
+                    <p>
+                        Digital content including research findings, infographics, and practical
+                        guides for reducing plastic waste in daily life.
+                    </p>
+                    <ul>
+                        <li>Research documentation</li>
+                        <li>Visual infographics</li>
+                        <li>Practical tips</li>
+                        <li>Accessible to all</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop Highlights -->
+    <section class="section workshops">
+        <div class="container">
+            <h2 class="section-title">Workshop Highlights</h2>
+            <div class="workshop-grid">
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="../assets/images/eccaction.jpg" alt="ECC Volunteer Center workshop">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>ECC Volunteer Center Workshop</h3>
+                        <p>
+                            Conducted comprehensive workshop at ECC Volunteer Center, presenting
+                            research findings and engaging participants in discussions about
+                            practical solutions for plastic waste reduction.
+                        </p>
+                        <div class="workshop-stats">
+                            <div class="stat">
+                                <iconify-icon icon="mdi:account-group" width="20"></iconify-icon>
+                                <span class="stat-text">25+ Participants</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:clock-outline" width="20"></iconify-icon>
+                                <span class="stat-text">2 Hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="../assets/images/eccaction2.jpg" alt="Interactive education session">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Interactive Learning Sessions</h3>
+                        <p>
+                            Hands-on education sessions using visual materials and group activities
+                            to help participants understand the lifecycle of plastic and identify
+                            reduction opportunities in their daily lives.
+                        </p>
+                        <div class="workshop-stats">
+                            <div class="stat">
+                                <iconify-icon icon="mdi:lightbulb" width="20"></iconify-icon>
+                                <span class="stat-text">Activity-Based</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:thumbs-up" width="20"></iconify-icon>
+                                <span class="stat-text">High Engagement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="../assets/images/Marketvisit.jpg" alt="Research presentation board">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Research Presentations</h3>
+                        <p>
+                            Sharing our supermarket research findings through visual presentations,
+                            showing real examples of plastic packaging and discussing evidence-based
+                            solutions with community members.
+                        </p>
+                        <div class="workshop-stats">
+                            <div class="stat">
+                                <iconify-icon icon="mdi:chart-bar" width="20"></iconify-icon>
+                                <span class="stat-text">Data-Driven</span>
+                            </div>
+                            <div class="stat">
+                                <iconify-icon icon="mdi:image-multiple" width="20"></iconify-icon>
+                                <span class="stat-text">Visual Evidence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Request a Workshop</h2>
+            <p>
+                Interested in bringing SWAP's educational programs to your school, organization,
+                or community event? Contact us to schedule a workshop!
+            </p>
+            <a href="action.html#contact" class="btn">
+                <iconify-icon icon="mdi:email-outline" width="20"></iconify-icon>
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SWAP</h4>
+                    <p>Stop Waste And Plastic</p>
+                    <p style="margin-top: 1rem;">
+                        High school student-led initiative tackling plastic waste in Japanese supermarkets.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="homepage.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="progress.html">Progress</a>
+                    <a href="action.html">Take Action</a>
+                    <a href="goals.html">Goals</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        <iconify-icon icon="mdi:email-outline" width="16" style="vertical-align: middle;"></iconify-icon>
+                        swapplastictogreen@gmail.com
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SWAP - Stop Waste And Plastic. Made with 💚 by SWAP Team.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

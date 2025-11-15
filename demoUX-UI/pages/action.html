@@ -170,6 +170,9 @@
             box-shadow: var(--shadow-soft);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .action-card:hover {
@@ -213,6 +216,7 @@
             color: var(--gray-800);
             margin-bottom: var(--space-6);
             line-height: 1.7;
+            flex: 1;
         }
 
         .btn {
@@ -260,6 +264,20 @@
             border-radius: var(--radius-round);
             box-shadow: var(--shadow-soft);
             margin-bottom: var(--space-8);
+        }
+
+        .initiative-image {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            margin-bottom: var(--space-6);
+        }
+
+        .initiative-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .initiative-header {
@@ -430,6 +448,10 @@
                 align-items: center;
                 text-align: center;
             }
+
+            .initiative-image {
+                height: 280px;
+            }
         }
     </style>
 </head>
@@ -467,7 +489,7 @@
     </section>
 
     <!-- Main Actions -->
-    <section class="section action-cards">
+    <section id="petition" class="section action-cards">
         <div class="container">
             <h2 class="section-title">How You Can Help</h2>
             <div class="cards-grid">
@@ -525,6 +547,9 @@
             <h2 class="section-title">Our Key Initiatives</h2>
 
             <div class="initiative-card">
+                <div class="initiative-image">
+                    <img src="../assets/images/action.jpg" alt="SWAP team members at Toyonaka City Hall Environmental Office">
+                </div>
                 <div class="initiative-header">
                     <div class="initiative-icon">
                         <iconify-icon icon="mdi:office-building" width="40"></iconify-icon>
@@ -546,10 +571,19 @@
                         <li>Providing data and research to inform environmental policies</li>
                         <li>Engaging with local residents through city-sponsored events</li>
                     </ul>
+                    <div style="margin-top: var(--space-6);">
+                        <a href="toyonaka-partnership.html" class="btn btn-secondary">
+                            <iconify-icon icon="mdi:book-open-outline" width="20"></iconify-icon>
+                            Read Full Story
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="initiative-card">
+                <div class="initiative-image">
+                    <img src="../assets/images/eccaction2.jpg" alt="SWAP team leading interactive workshop at ECC Volunteer Center">
+                </div>
                 <div class="initiative-header">
                     <div class="initiative-icon" style="background-color: var(--pastel-blue);">
                         <iconify-icon icon="mdi:account-group" width="40"></iconify-icon>
@@ -571,10 +605,19 @@
                         <li>Help with research and data collection at supermarkets</li>
                         <li>Assist with social media and communication efforts</li>
                     </ul>
+                    <div style="margin-top: var(--space-6);">
+                        <a href="ecc-volunteer.html" class="btn btn-secondary">
+                            <iconify-icon icon="mdi:book-open-outline" width="20"></iconify-icon>
+                            Read Full Story
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="initiative-card">
+                <div class="initiative-image">
+                    <img src="../assets/images/1.jpg" alt="Petition campaign at supermarket plastic bags section">
+                </div>
                 <div class="initiative-header">
                     <div class="initiative-icon" style="background-color: var(--mint);">
                         <iconify-icon icon="mdi:store" width="40"></iconify-icon>
@@ -596,6 +639,12 @@
                         <li>Highlighting successful case studies from other regions</li>
                         <li>Building relationships with store managers and corporate offices</li>
                     </ul>
+                    <div style="margin-top: var(--space-6);">
+                        <a href="supermarket-engagement.html" class="btn btn-secondary">
+                            <iconify-icon icon="mdi:book-open-outline" width="20"></iconify-icon>
+                            Read Full Story
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -636,11 +685,13 @@
                     <p>Attend our workshops and community cleanup activities</p>
                 </div>
 
-                <div class="help-item">
-                    <iconify-icon icon="mdi:instagram" width="48"></iconify-icon>
-                    <h4>Follow Us</h4>
-                    <p>Stay updated on Instagram @swapplastictogreen</p>
-                </div>
+                <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="help-item">
+                        <iconify-icon icon="mdi:instagram" width="48"></iconify-icon>
+                        <h4>Follow Us</h4>
+                        <p>Stay updated on Instagram @swapplastictogreen</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -658,7 +709,7 @@
                     <iconify-icon icon="mdi:email-outline" width="20"></iconify-icon>
                     Email Us
                 </a>
-                <a href="#" class="btn btn-secondary">
+                <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                     <iconify-icon icon="mdi:instagram" width="20"></iconify-icon>
                     Follow on Instagram
                 </a>
@@ -693,7 +744,7 @@
                     </p>
                     <p>
                         <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
-                        @swapplastictogreen
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
                     </p>
                     <p>
                         <iconify-icon icon="mdi:draw-pen" width="16" style="vertical-align: middle;"></iconify-icon>

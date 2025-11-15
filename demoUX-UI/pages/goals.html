@@ -427,6 +427,552 @@
             color: var(--gray-100);
         }
 
+        /* Progress Bars - REDESIGNED */
+        .progress-section {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .progress-item {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--pastel-green), var(--mint));
+            transform: scaleX(var(--progress, 0));
+            transform-origin: left;
+            transition: transform 1s ease;
+        }
+
+        .progress-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .progress-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--space-6);
+            background: linear-gradient(135deg, var(--pastel-green), var(--mint));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(184, 230, 184, 0.3);
+        }
+
+        .progress-icon iconify-icon {
+            color: var(--white);
+            font-size: 36px;
+        }
+
+        .progress-stats {
+            text-align: center;
+            margin-bottom: var(--space-6);
+        }
+
+        .progress-current {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            line-height: 1;
+        }
+
+        .progress-separator {
+            font-size: 2rem;
+            color: var(--gray-700);
+            margin: 0 0.5rem;
+        }
+
+        .progress-target {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            line-height: 1;
+        }
+
+        .progress-title {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            text-align: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 12px;
+            background-color: var(--sand);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: var(--space-4);
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--pastel-green), var(--mint));
+            border-radius: 6px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-percentage {
+            font-family: var(--font-rounded);
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--pastel-green);
+            text-align: center;
+        }
+
+        .progress-description {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Timeline Roadmap - REDESIGNED */
+        .roadmap {
+            background: linear-gradient(135deg, var(--sand) 0%, var(--cream) 50%, var(--mint) 100%);
+            position: relative;
+        }
+
+        .roadmap-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Vertical Timeline Line */
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--pastel-green), var(--pastel-blue), var(--mint));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .roadmap-quarter {
+            position: relative;
+            margin-bottom: var(--space-16);
+        }
+
+        .roadmap-quarter:last-child {
+            margin-bottom: 0;
+        }
+
+        .quarter-badge {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--pastel-green), var(--mint));
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 16px rgba(184, 230, 184, 0.4);
+            z-index: 10;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .quarter-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70px;
+            font-family: var(--font-rounded);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            text-align: center;
+        }
+
+        .roadmap-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+            padding-top: 120px;
+        }
+
+        .roadmap-item {
+            background-color: var(--sand);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .roadmap-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Connector dots */
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--pastel-green);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .roadmap-item:nth-child(odd)::before {
+            right: -54px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .roadmap-item:nth-child(even)::before {
+            left: -54px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Connector lines */
+        .roadmap-item::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 44px;
+            background: linear-gradient(90deg, var(--pastel-green), transparent);
+        }
+
+        .roadmap-item:nth-child(odd)::after {
+            right: -44px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .roadmap-item:nth-child(even)::after {
+            left: -44px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+        }
+
+        .roadmap-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--pastel-green), var(--mint));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .roadmap-item-icon iconify-icon {
+            color: var(--white);
+            font-size: 24px;
+        }
+
+        .roadmap-item h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .roadmap-item p {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Different colors for quarters */
+        .roadmap-quarter:nth-child(1) .quarter-badge {
+            background: linear-gradient(135deg, var(--pastel-green), var(--mint));
+        }
+
+        .roadmap-quarter:nth-child(2) .quarter-badge {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--sky));
+        }
+
+        .roadmap-quarter:nth-child(2) .roadmap-item-icon {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--sky));
+        }
+
+        .roadmap-quarter:nth-child(2) .roadmap-item::before {
+            background-color: var(--pastel-blue);
+        }
+
+        .roadmap-quarter:nth-child(3) .quarter-badge {
+            background: linear-gradient(135deg, var(--mint), var(--pastel-green));
+        }
+
+        .roadmap-quarter:nth-child(3) .roadmap-item-icon {
+            background: linear-gradient(135deg, var(--mint), var(--pastel-green));
+        }
+
+        .roadmap-quarter:nth-child(3) .roadmap-item::before {
+            background-color: var(--mint);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .testimonial-card {
+            background-color: var(--sand);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: var(--space-6);
+            right: var(--space-6);
+            color: var(--pastel-green);
+            opacity: 0.3;
+            font-size: 48px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--gray-800);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: var(--space-6);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pastel-green), var(--mint));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-avatar iconify-icon {
+            color: var(--white);
+            font-size: 32px;
+        }
+
+        .author-info h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        /* Before/After Impact */
+        .impact-comparison {
+            background-color: var(--sand);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .comparison-card {
+            background-color: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .comparison-label {
+            font-family: var(--font-rounded);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            margin-bottom: var(--space-4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-values {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+
+        .before-value {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gray-700);
+            text-decoration: line-through;
+        }
+
+        .arrow {
+            color: var(--pastel-green);
+            font-size: 32px;
+        }
+
+        .after-value {
+            font-family: var(--font-rounded);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+        }
+
+        .comparison-description {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        /* Volunteer Spotlight */
+        .volunteer-spotlight {
+            background-color: var(--white);
+        }
+
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .spotlight-card {
+            background-color: var(--sand);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .spotlight-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto var(--space-4);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--sky));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .spotlight-avatar iconify-icon {
+            color: var(--white);
+            font-size: 50px;
+        }
+
+        .spotlight-card h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .spotlight-stat {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            margin-bottom: var(--space-4);
+        }
+
+        .spotlight-description {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Goal Categories */
+        .goal-tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+            flex-wrap: wrap;
+        }
+
+        .goal-tab {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--white);
+            border: 2px solid var(--pastel-green);
+            color: var(--pastel-green);
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .goal-tab:hover,
+        .goal-tab.active {
+            background-color: var(--pastel-green);
+            color: var(--white);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .page-header h1 {
@@ -443,6 +989,69 @@
 
             .achievement-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .comparison-values {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .before-value,
+            .after-value {
+                font-size: 1.5rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-current {
+                font-size: 2.5rem;
+            }
+
+            .progress-target {
+                font-size: 1.75rem;
+            }
+
+            /* Mobile Roadmap */
+            .roadmap-container::before {
+                left: 30px;
+            }
+
+            .roadmap-items {
+                grid-template-columns: 1fr;
+                padding-left: 70px;
+                padding-top: 100px;
+            }
+
+            .quarter-badge {
+                left: 30px;
+                transform: translateX(-50%);
+                font-size: 1.125rem;
+                padding: 0.75rem 1.25rem;
+                min-width: 140px;
+            }
+
+            .quarter-title {
+                left: 30px;
+                transform: translateX(-50%);
+                top: 60px;
+                font-size: 1rem;
+            }
+
+            .roadmap-item::before {
+                left: -54px !important;
+                right: auto !important;
+            }
+
+            .roadmap-item::after {
+                left: -44px !important;
+                right: auto !important;
+                transform: translateY(-50%) scaleX(-1) !important;
             }
         }
     </style>
@@ -648,6 +1257,346 @@
         </div>
     </section>
 
+    <!-- Progress Tracking -->
+    <section class="section progress-section">
+        <div class="container">
+            <h2 class="section-title">Goal Progress Tracker</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12); color: var(--gray-700); font-size: 1.125rem;">
+                Track our journey towards achieving our ambitious 2025 goals
+            </p>
+            <div class="progress-grid">
+                <div class="progress-item" style="--progress: 0.10;">
+                    <div class="progress-icon">
+                        <iconify-icon icon="mdi:draw-pen" width="36"></iconify-icon>
+                    </div>
+                    <div class="progress-stats">
+                        <span class="progress-current">100</span>
+                        <span class="progress-separator">/</span>
+                        <span class="progress-target">1,000</span>
+                    </div>
+                    <h3 class="progress-title">Petition Signatures</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 10%;"></div>
+                    </div>
+                    <div class="progress-percentage">10% Complete</div>
+                    <p class="progress-description">Every signature brings us closer to meaningful change</p>
+                </div>
+
+                <div class="progress-item" style="--progress: 0.75;">
+                    <div class="progress-icon" style="background: linear-gradient(135deg, var(--pastel-blue), var(--sky));">
+                        <iconify-icon icon="mdi:account-group" width="36"></iconify-icon>
+                    </div>
+                    <div class="progress-stats">
+                        <span class="progress-current">75</span>
+                        <span class="progress-separator">/</span>
+                        <span class="progress-target">100</span>
+                    </div>
+                    <h3 class="progress-title">Active Volunteers</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 75%; background: linear-gradient(90deg, var(--pastel-blue), var(--sky));"></div>
+                    </div>
+                    <div class="progress-percentage" style="color: var(--pastel-blue);">75% Complete</div>
+                    <p class="progress-description">Building a strong community of changemakers</p>
+                </div>
+
+                <div class="progress-item" style="--progress: 0.30;">
+                    <div class="progress-icon" style="background: linear-gradient(135deg, var(--mint), var(--pastel-green));">
+                        <iconify-icon icon="mdi:store" width="36"></iconify-icon>
+                    </div>
+                    <div class="progress-stats">
+                        <span class="progress-current">6</span>
+                        <span class="progress-separator">/</span>
+                        <span class="progress-target">20</span>
+                    </div>
+                    <h3 class="progress-title">Supermarkets Researched</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 30%; background: linear-gradient(90deg, var(--mint), var(--pastel-green));"></div>
+                    </div>
+                    <div class="progress-percentage" style="color: var(--mint);">30% Complete</div>
+                    <p class="progress-description">Expanding our research across the region</p>
+                </div>
+
+                <div class="progress-item" style="--progress: 0.16;">
+                    <div class="progress-icon" style="background: linear-gradient(135deg, var(--sky), var(--pastel-blue));">
+                        <iconify-icon icon="mdi:school" width="36"></iconify-icon>
+                    </div>
+                    <div class="progress-stats">
+                        <span class="progress-current">8</span>
+                        <span class="progress-separator">/</span>
+                        <span class="progress-target">50</span>
+                    </div>
+                    <h3 class="progress-title">School Partnerships</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 16%; background: linear-gradient(90deg, var(--sky), var(--pastel-blue));"></div>
+                    </div>
+                    <div class="progress-percentage" style="color: var(--sky);">16% Complete</div>
+                    <p class="progress-description">Educating the next generation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Impact -->
+    <section class="section impact-comparison">
+        <div class="container">
+            <h2 class="section-title">Our Impact: Before vs After</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-label">Community Awareness</div>
+                    <div class="comparison-values">
+                        <div class="before-value">0</div>
+                        <iconify-icon icon="mdi:arrow-right" class="arrow"></iconify-icon>
+                        <div class="after-value">8,000+</div>
+                    </div>
+                    <p class="comparison-description">People reached through campaigns and events</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-label">Active Volunteers</div>
+                    <div class="comparison-values">
+                        <div class="before-value">1</div>
+                        <iconify-icon icon="mdi:arrow-right" class="arrow"></iconify-icon>
+                        <div class="after-value">75+</div>
+                    </div>
+                    <p class="comparison-description">From solo founder to thriving team</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-label">Research Data</div>
+                    <div class="comparison-values">
+                        <div class="before-value">0</div>
+                        <iconify-icon icon="mdi:arrow-right" class="arrow"></iconify-icon>
+                        <div class="after-value">500+</div>
+                    </div>
+                    <p class="comparison-description">Products documented and analyzed</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-label">Official Partners</div>
+                    <div class="comparison-values">
+                        <div class="before-value">0</div>
+                        <iconify-icon icon="mdi:arrow-right" class="arrow"></iconify-icon>
+                        <div class="after-value">2</div>
+                    </div>
+                    <p class="comparison-description">City Hall & ECC partnerships secured</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <iconify-icon icon="mdi:format-quote-close" class="quote-icon"></iconify-icon>
+                    <p class="testimonial-text">
+                        "SWAP's research has been invaluable for our environmental policy planning. Their
+                        student-led approach brings fresh perspectives and genuine passion to the plastic
+                        waste challenge."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <iconify-icon icon="mdi:office-building" width="32"></iconify-icon>
+                        </div>
+                        <div class="author-info">
+                            <h4>Toyonaka City Official</h4>
+                            <p>Environmental Department</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <iconify-icon icon="mdi:format-quote-close" class="quote-icon"></iconify-icon>
+                    <p class="testimonial-text">
+                        "Volunteering with SWAP has been incredibly rewarding. I've learned so much about
+                        environmental activism and made lasting friendships with people who share my values."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, var(--pastel-blue), var(--sky));">
+                            <iconify-icon icon="mdi:account" width="32"></iconify-icon>
+                        </div>
+                        <div class="author-info">
+                            <h4>ECC Volunteer</h4>
+                            <p>Active Member Since March 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <iconify-icon icon="mdi:format-quote-close" class="quote-icon"></iconify-icon>
+                    <p class="testimonial-text">
+                        "As a supermarket manager, I appreciated SWAP's respectful, research-based approach.
+                        They're not just complaining—they're offering practical solutions we can actually implement."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, var(--mint), var(--pastel-green));">
+                            <iconify-icon icon="mdi:store" width="32"></iconify-icon>
+                        </div>
+                        <div class="author-info">
+                            <h4>Local Supermarket Manager</h4>
+                            <p>Osaka Area</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Spotlight -->
+    <section class="section volunteer-spotlight">
+        <div class="container">
+            <h2 class="section-title">Volunteer Spotlight</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12); color: var(--gray-700);">
+                Celebrating our dedicated volunteers who go above and beyond
+            </p>
+            <div class="spotlight-grid">
+                <div class="spotlight-card">
+                    <div class="spotlight-avatar">
+                        <iconify-icon icon="mdi:star" width="50"></iconify-icon>
+                    </div>
+                    <h3>Top Researcher</h3>
+                    <div class="spotlight-stat">200+</div>
+                    <p class="spotlight-description">
+                        Products documented and photographed during supermarket visits
+                    </p>
+                </div>
+
+                <div class="spotlight-card">
+                    <div class="spotlight-avatar" style="background: linear-gradient(135deg, var(--pastel-green), var(--mint));">
+                        <iconify-icon icon="mdi:calendar-star" width="50"></iconify-icon>
+                    </div>
+                    <h3>Most Events</h3>
+                    <div class="spotlight-stat">24</div>
+                    <p class="spotlight-description">
+                        Workshops and community events organized and facilitated
+                    </p>
+                </div>
+
+                <div class="spotlight-card">
+                    <div class="spotlight-avatar" style="background: linear-gradient(135deg, var(--mint), var(--sky));">
+                        <iconify-icon icon="mdi:clock-time-eight" width="50"></iconify-icon>
+                    </div>
+                    <h3>Most Hours</h3>
+                    <div class="spotlight-stat">150+</div>
+                    <p class="spotlight-description">
+                        Volunteer hours contributed to SWAP initiatives
+                    </p>
+                </div>
+
+                <div class="spotlight-card">
+                    <div class="spotlight-avatar" style="background: linear-gradient(135deg, var(--sky), var(--pastel-blue));">
+                        <iconify-icon icon="mdi:share-variant" width="50"></iconify-icon>
+                    </div>
+                    <h3>Social Media Champion</h3>
+                    <div class="spotlight-stat">5,000+</div>
+                    <p class="spotlight-description">
+                        Total reach through social media posts and campaigns
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2025 Roadmap -->
+    <section class="section roadmap">
+        <div class="container">
+            <h2 class="section-title">2025 Roadmap</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12); color: var(--gray-700); font-size: 1.125rem;">
+                Our quarterly milestones on the path to creating meaningful change
+            </p>
+            <div class="roadmap-container">
+                <!-- Q2 2025 -->
+                <div class="roadmap-quarter">
+                    <div class="quarter-badge">Q2 2025</div>
+                    <div class="quarter-title">April - June</div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:draw-pen" width="24"></iconify-icon>
+                            </div>
+                            <h4>Reach 500 Petition Signatures</h4>
+                            <p>Intensify petition campaign with targeted outreach to schools and community groups</p>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:store" width="24"></iconify-icon>
+                            </div>
+                            <h4>Research 5 More Locations</h4>
+                            <p>Expand research to supermarkets in neighboring cities</p>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:presentation" width="24"></iconify-icon>
+                            </div>
+                            <h4>Launch School Program</h4>
+                            <p>Begin delivering workshops at 10 new schools</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 2025 -->
+                <div class="roadmap-quarter">
+                    <div class="quarter-badge">Q3 2025</div>
+                    <div class="quarter-title">July - September</div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:handshake" width="24"></iconify-icon>
+                            </div>
+                            <h4>First Corporate Partnership</h4>
+                            <p>Secure pilot program with at least one supermarket chain</p>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:file-chart" width="24"></iconify-icon>
+                            </div>
+                            <h4>Publish Research Report</h4>
+                            <p>Release comprehensive findings from our supermarket research</p>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:account-group" width="24"></iconify-icon>
+                            </div>
+                            <h4>100 Active Volunteers</h4>
+                            <p>Grow volunteer base to 100 dedicated members</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 2025 -->
+                <div class="roadmap-quarter">
+                    <div class="quarter-badge">Q4 2025</div>
+                    <div class="quarter-title">October - December</div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:trophy" width="24"></iconify-icon>
+                            </div>
+                            <h4>1,000 Signatures Milestone</h4>
+                            <p>Present petition to supermarket chains and government officials</p>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:earth" width="24"></iconify-icon>
+                            </div>
+                            <h4>International Connections</h4>
+                            <p>Establish network with student environmental groups globally</p>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-item-icon">
+                                <iconify-icon icon="mdi:calendar-check" width="24"></iconify-icon>
+                            </div>
+                            <h4>Year-End Impact Report</h4>
+                            <p>Publish comprehensive 2025 impact assessment and 2026 goals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Future Goals -->
     <section class="section future-goals">
         <div class="container">
@@ -764,7 +1713,7 @@
                     </p>
                     <p>
                         <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
-                        @swapplastictogreen
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
                     </p>
                     <p>
                         <iconify-icon icon="mdi:draw-pen" width="16" style="vertical-align: middle;"></iconify-icon>

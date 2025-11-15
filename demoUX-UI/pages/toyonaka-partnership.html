@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyonaka City Hall Partnership - SWAP</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <style>
+        /* CSS Variables - Design System */
+        :root {
+            --pastel-green: #B8E6B8;
+            --pastel-blue: #A7C7E7;
+            --cream: #FFFDD0;
+            --mint: #C1F0C1;
+            --sky: #B9D9EB;
+            --sand: #F5EFE0;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+            --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+            --font-rounded: 'Nunito', 'Quicksand', sans-serif;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --radius-soft: 12px;
+            --radius-round: 20px;
+            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: var(--space-4) 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-rounded);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pastel-green);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: var(--pastel-blue);
+            color: var(--gray-900);
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: var(--space-4) 0;
+            background-color: var(--white);
+        }
+
+        .breadcrumb a {
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--pastel-green);
+        }
+
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            color: var(--gray-700);
+        }
+
+        /* Article Header */
+        .article-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--mint) 100%);
+            padding: var(--space-16) 0;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: var(--space-6);
+            align-items: center;
+            margin-bottom: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-800);
+            font-size: 0.9375rem;
+        }
+
+        .article-title {
+            font-family: var(--font-rounded);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-4);
+            line-height: 1.2;
+        }
+
+        .article-subtitle {
+            font-size: 1.375rem;
+            color: var(--gray-800);
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: calc(var(--space-8) * -1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius-round);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Article Content */
+        .article-content {
+            background-color: var(--white);
+            padding: var(--space-16) 0;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-wrapper h2 {
+            font-family: var(--font-rounded);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-top: var(--space-12);
+            margin-bottom: var(--space-6);
+        }
+
+        .content-wrapper h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-wrapper h3 {
+            font-family: var(--font-rounded);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+        }
+
+        .content-wrapper p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: var(--space-6);
+        }
+
+        .content-wrapper ul, .content-wrapper ol {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: var(--space-6);
+            padding-left: 2rem;
+        }
+
+        .content-wrapper li {
+            margin-bottom: var(--space-4);
+        }
+
+        .highlight-box {
+            background-color: var(--sand);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            margin: var(--space-8) 0;
+            border-left: 4px solid var(--pastel-green);
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--pastel-green);
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            background-color: var(--sand);
+            padding: var(--space-16) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-round);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-number {
+            font-family: var(--font-rounded);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--pastel-green);
+            margin-bottom: var(--space-4);
+        }
+
+        .stat-label {
+            font-family: var(--font-rounded);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--pastel-green);
+            padding: var(--space-16) 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-rounded);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 0 auto var(--space-8);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-round);
+            font-family: var(--font-rounded);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--gray-900);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--gray-900);
+            margin-left: var(--space-4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-6);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-rounded);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            color: var(--pastel-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray-100);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--pastel-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.25rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .featured-image img {
+                height: 300px;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: var(--space-4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="homepage.html" class="logo">
+                <iconify-icon icon="mdi:leaf" width="32"></iconify-icon>
+                <span>SWAP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="action.html">Action</a></li>
+                <li><a href="goals.html">Goals</a></li>
+            </ul>
+            <button class="lang-switch">
+                <iconify-icon icon="mdi:translate" width="20" style="vertical-align: middle;"></iconify-icon>
+                日本語
+            </button>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="homepage.html">Home</a>
+            <span>/</span>
+            <a href="action.html">Action</a>
+            <span>/</span>
+            <span style="color: var(--pastel-green); font-weight: 600;">Toyonaka City Hall Partnership</span>
+        </div>
+    </section>
+
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <div class="article-meta">
+                <div class="meta-item">
+                    <iconify-icon icon="mdi:calendar" width="20"></iconify-icon>
+                    <span>March 2024 - Present</span>
+                </div>
+                <div class="meta-item">
+                    <iconify-icon icon="mdi:office-building" width="20"></iconify-icon>
+                    <span>Government Partnership</span>
+                </div>
+                <div class="meta-item">
+                    <iconify-icon icon="mdi:map-marker" width="20"></iconify-icon>
+                    <span>Toyonaka City, Osaka</span>
+                </div>
+            </div>
+            <h1 class="article-title">Toyonaka City Hall Partnership</h1>
+            <p class="article-subtitle">
+                Working with local government to create systemic change and promote sustainable practices
+                at the municipal level across Toyonaka City.
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Image -->
+    <div class="container">
+        <div class="featured-image">
+            <img src="../assets/images/action.jpg" alt="SWAP team members meeting with Toyonaka City Hall Environmental Office staff">
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>About the Partnership</h2>
+                <p>
+                    In March 2024, SWAP established an official partnership with Toyonaka City Hall's
+                    Environmental Department (豊中市役所 環境部). This collaboration represents a significant
+                    milestone in our mission to reduce plastic waste in Japanese supermarkets, as it provides
+                    us with governmental support and resources to amplify our impact.
+                </p>
+                <p>
+                    The partnership was formed after months of research and advocacy work that demonstrated
+                    the urgent need for municipal-level intervention in addressing plastic waste from
+                    retail sources. Toyonaka City Hall recognized SWAP's student-led initiative as an
+                    innovative approach to environmental activism and committed to supporting our efforts.
+                </p>
+
+                <h2>What We're Accomplishing Together</h2>
+
+                <h3>1. Community Education & Workshops</h3>
+                <p>
+                    Through this partnership, we've organized multiple community workshops focused on
+                    plastic waste reduction. These events are held at city-sponsored venues and reach
+                    residents across all age groups. Our workshops cover:
+                </p>
+                <ul>
+                    <li><strong>Understanding Plastic Pollution:</strong> The environmental and health impacts of single-use plastics</li>
+                    <li><strong>Practical Solutions:</strong> How residents can reduce plastic consumption in daily life</li>
+                    <li><strong>Supermarket Alternatives:</strong> Identifying and supporting stores with sustainable packaging</li>
+                    <li><strong>Policy Advocacy:</strong> Teaching residents how to advocate for change at local businesses</li>
+                </ul>
+
+                <h3>2. City-Wide Sustainability Initiatives</h3>
+                <p>
+                    We collaborate with Toyonaka City Hall on broader sustainability programs that align
+                    with our plastic reduction goals:
+                </p>
+                <ul>
+                    <li>Integration of plastic waste data into city environmental reports</li>
+                    <li>Support for Toyonaka's Zero Waste 2030 initiative</li>
+                    <li>Joint campaigns during national environmental awareness weeks</li>
+                    <li>Development of city-wide recycling education materials</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Success Story: Plastic-Free July Campaign</h3>
+                    <p>
+                        In July 2024, SWAP partnered with Toyonaka City Hall to launch a "Plastic-Free July"
+                        campaign. The initiative reached over 5,000 residents through social media, flyers,
+                        and community events. We documented a 23% increase in reusable bag usage at
+                        participating supermarkets during the campaign period.
+                    </p>
+                </div>
+
+                <h3>3. Research & Policy Development</h3>
+                <p>
+                    Our data-driven approach has proven valuable to city policymakers. We provide:
+                </p>
+                <ul>
+                    <li>Comprehensive packaging audit data from 6+ supermarket locations</li>
+                    <li>Consumer behavior surveys and analysis</li>
+                    <li>Case studies of successful plastic reduction programs from other municipalities</li>
+                    <li>Evidence-based recommendations for local plastic reduction policies</li>
+                </ul>
+                <p>
+                    This research has informed discussions about potential municipal regulations on
+                    single-use plastics and incentives for businesses that adopt sustainable packaging.
+                </p>
+
+                <h3>4. Engaging with Local Residents</h3>
+                <p>
+                    The partnership gives us access to city-sponsored events where we can directly engage
+                    with Toyonaka residents:
+                </p>
+                <ul>
+                    <li>Monthly environmental fairs at Toyonaka City Hall plaza</li>
+                    <li>School presentations through the city's environmental education program</li>
+                    <li>Community cleanup events organized jointly with city departments</li>
+                    <li>Information booths at local festivals and markets</li>
+                </ul>
+
+                <h2>Looking Forward</h2>
+                <p>
+                    As we continue this partnership, we're working toward several ambitious goals:
+                </p>
+                <ul>
+                    <li>Development of a Toyonaka Plastic Reduction Roadmap for 2025-2030</li>
+                    <li>Creation of a "Green Supermarket" certification program for local stores</li>
+                    <li>Establishment of a permanent SWAP resource center at city environmental facilities</li>
+                    <li>Expansion of the partnership model to neighboring municipalities</li>
+                </ul>
+                <p>
+                    This partnership demonstrates that youth-led environmental activism, when supported
+                    by local government, can create meaningful systemic change. We're proud to be working
+                    with Toyonaka City Hall to build a more sustainable future for our community.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact-stats">
+        <div class="container">
+            <h2 style="font-family: var(--font-rounded); font-size: 3rem; font-weight: 700; text-align: center; margin-bottom: var(--space-12); color: var(--gray-900);">
+                Partnership Impact
+            </h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Residents Reached</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Community Events</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">School Workshops</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">23%</div>
+                    <div class="stat-label">Increase in Reusable Bags</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Get Involved</h2>
+            <p>
+                Want to be part of our partnership initiatives? Join our community events or
+                learn how you can support sustainable practices in Toyonaka.
+            </p>
+            <div>
+                <a href="action.html#contact" class="btn btn-primary">
+                    <iconify-icon icon="mdi:email-outline" width="20"></iconify-icon>
+                    Contact Us
+                </a>
+                <a href="action.html" class="btn btn-secondary">
+                    <iconify-icon icon="mdi:arrow-left" width="20"></iconify-icon>
+                    Back to Action
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SWAP</h4>
+                    <p>Stop Waste And Plastic</p>
+                    <p style="margin-top: 1rem;">
+                        High school student-led initiative tackling plastic waste in Japanese supermarkets.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="homepage.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="progress.html">Progress</a>
+                    <a href="action.html">Take Action</a>
+                    <a href="goals.html">Goals</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        <iconify-icon icon="mdi:email-outline" width="16" style="vertical-align: middle;"></iconify-icon>
+                        swapplastictogreen@gmail.com
+                    </p>
+                    <p>
+                        <iconify-icon icon="mdi:instagram" width="16" style="vertical-align: middle;"></iconify-icon>
+                        <a href="https://www.instagram.com/swapplastictogreen/" target="_blank" rel="noopener noreferrer">@swapplastictogreen</a>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SWAP - Stop Waste And Plastic. Made with 💚 by SWAP Team.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
