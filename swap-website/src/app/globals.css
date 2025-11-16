@@ -1,26 +1,308 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   SWAP Design System - Global Styles
+   ============================================ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
+  /* CSS Custom Properties (Design Tokens) */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Colors */
+    --pastel-green: #B8E6B8;
+    --pastel-blue: #A7C7E7;
+    --cream: #FFFDD0;
+    --mint: #C1F0C1;
+    --sky: #B9D9EB;
+    --sand: #F5EFE0;
+    --white: #FFFFFF;
+    --gray-50: #FAFAFA;
+    --gray-100: #F4F4F5;
+    --gray-700: #3F3F46;
+    --gray-800: #27272A;
+    --gray-900: #18181B;
+
+    /* Typography */
+    --font-primary: 'Verdana', Geneva, Tahoma, system-ui, sans-serif;
+    --font-rounded: var(--font-nunito), 'Nunito', 'Quicksand', sans-serif;
+
+    /* Spacing */
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    /* Border Radius */
+    --radius-soft: 12px;
+    --radius-round: 20px;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Base HTML Elements */
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-cream text-gray-900 font-primary;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography Defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-rounded font-bold text-gray-900;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h4 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h5 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h6 {
+    @apply text-lg md:text-xl;
+  }
+
+  p {
+    @apply text-base leading-relaxed text-gray-700;
+  }
+
+  a {
+    @apply text-pastel-green transition-colors duration-300;
+  }
+
+  a:hover {
+    @apply opacity-80;
+  }
+
+  /* Lists */
+  ul, ol {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  li {
+    @apply mb-2;
+  }
+
+  /* Strong and emphasis */
+  strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  em {
+    @apply italic;
+  }
+
+  /* Images */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Buttons Reset */
+  button {
+    @apply cursor-pointer;
+  }
+
+  /* Focus States */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-pastel-green ring-offset-2;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+@layer components {
+  /* Container */
+  .container-swap {
+    @apply max-w-[1200px] mx-auto px-6;
+  }
+
+  /* Section Spacing */
+  .section {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Text Gradients */
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-pastel-green to-mint bg-clip-text text-transparent;
+  }
+
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-pastel-blue to-sky bg-clip-text text-transparent;
+  }
+
+  /* Background Gradients */
+  .bg-gradient-green {
+    background: linear-gradient(135deg, var(--pastel-green) 0%, var(--mint) 100%);
+  }
+
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--sky) 100%);
+  }
+
+  .bg-gradient-green-blue {
+    background: linear-gradient(135deg, var(--mint) 0%, var(--pastel-blue) 100%);
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-round shadow-soft p-8 transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-medium -translate-y-1;
+  }
+
+  /* Button Base */
+  .btn {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-round font-rounded font-semibold transition-all duration-300;
+  }
+
+  .btn:hover {
+    @apply -translate-y-1 shadow-medium;
+  }
+
+  .btn-primary {
+    @apply btn bg-gray-900 text-white;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-gray-900;
+  }
+
+  .btn-green {
+    @apply btn bg-pastel-green text-gray-900;
+  }
+
+  .btn-blue {
+    @apply btn bg-pastel-blue text-gray-900;
+  }
+
+  /* Icon Containers */
+  .icon-circle {
+    @apply w-16 h-16 flex items-center justify-center rounded-full;
+  }
+
+  /* Highlight Box */
+  .highlight-box {
+    @apply bg-sand p-6 rounded-round border-l-4 border-pastel-green;
+  }
+
+  /* Stat Card */
+  .stat-card {
+    @apply bg-white p-6 rounded-round text-center shadow-soft;
+  }
+
+  .stat-number {
+    @apply font-rounded text-5xl font-extrabold text-pastel-green mb-4;
+  }
+
+  .stat-label {
+    @apply font-rounded text-lg font-semibold text-gray-900;
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@layer utilities {
+  /* Fade In Animation */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Slide In Animation */
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Hover Scale */
+  .hover-scale {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-scale:hover {
+    @apply scale-105;
+  }
+}
+
+/* ============================================
+   Responsive Utilities
+   ============================================ */
+
+@layer utilities {
+  /* Hide on mobile, show on desktop */
+  .desktop-only {
+    @apply hidden md:block;
+  }
+
+  /* Show on mobile, hide on desktop */
+  .mobile-only {
+    @apply block md:hidden;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
 }
