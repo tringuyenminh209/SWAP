@@ -43,7 +43,7 @@
 
   /* Base HTML Elements */
   * {
-    @apply border-border;
+    box-sizing: border-box;
   }
 
   html {
